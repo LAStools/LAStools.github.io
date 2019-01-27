@@ -1,3 +1,11 @@
+27 January 2019 -- laszip: fix for '-no_native' or '-compatible' when LAS 1.4 input is already 'native' compressed
+27 January 2019 -- lasreturn: compute 3D distance between subsequent returns (aka gaps) and store as extra bytes 
+26 January 2019 -- lasinfo: fix report of min/max extra byte values when scale is not set and has value of zero 
+25 January 2019 -- all LAStools: new "Extra Bytes" transform '-add_scaled_attribute_to_user_data 0 10.0'
+22 January 2019 -- lasinfo: fixed bug of tool simply stopping to read points when reaching a total of 4294967295
+21 January 2019 -- lascolor: create 64 bit version and add missing '-cpu64' switch
+21 January 2019 -- lasinfo: '-repair' or '-repair_counters' bug fix for repairing legacy return counters in LAS header 
+20 January 2019 -- lasinfo: also report min/max values of documented additional attributes stored in 'extra bytes'
 14 January 2019 -- lasgrid64, las2dem64, lascanopy64, lasoverlap64: also support PNG, JPG, and TIF raster output
 13 January 2019 -- lasoverlap: create 64 bit version and add missing '-cpu64' switch
 11 January 2019 -- all LAStools: exit with ERROR when '-cpu64' switch is used but 64 bit executable cannot be found
