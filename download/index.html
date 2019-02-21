@@ -5,7 +5,7 @@
         const response = await fetch('https://api.github.com/repos/LAStools/LAStools.github.io/contents/download/');
         const data = await response.json();
         let htmlString = '';
-        htmlString += 'updated 27th January 2019<br>';
+        htmlString += 'updated 21st February 2019<br>';
         htmlString += 'download <a href="LAStools.zip">LAStools.zip</a> or <a href="laszip.exe">laszip.exe</a> or <a href="laszip-cli.exe">laszip-cli.exe</a><br>';
         htmlString +='<ul>';
         for (let file of data) {
