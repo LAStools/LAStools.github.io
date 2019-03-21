@@ -1,3 +1,5 @@
+21 March 2019 -- lasoverage: new '-classify_as 18' to give overage / overlap points classification different from 12
+20 March 2019 -- lasoverage: new option '-entire_overlap' to classify, flag, or delete *all* points in overlap area 
 19 March 2019 -- LASlib, LASzip, LAStools: bug fix in "legacy class" decompressing new point types with "class > 31"
 10 March 2019 -- lastrack: bug fix when '-store_height_as_extra_bytes' if extra bytes already exist in input file
  6 March 2019 -- lasvoxel: new option '-step_z_infinite' for a 2D voxelization with infinitely extending z cells
