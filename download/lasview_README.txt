@@ -36,9 +36,11 @@
   VIEWING AND TRAVERSING CROSS SECTIONS 
 
   For quality checking and detail views you can press <x> and
-  select a cross section or smaller area of interest. Move it
-  around with the arrow key. Holding down <SHIFT> or <ALT> is
-  taking larger or smaller steps. Press <x> again and you see
+  select a cross section or smaller area of interest. By default
+  you will draw a profile rectangle. Holding down <SHIFT> draws
+  a profile line. Its width can be chosen in the pop-up menu. Move
+  either around with the arrow key. Holding down <SHIFT> or <ALT>
+  is taking larger or smaller steps. Press <x> again and you see
   only the selected area. Again, traverse the LiDAR my moving
   around with the arrow keys. You can do your edits in this
   cross section view. Jumping back between cross section view
@@ -130,10 +132,11 @@ interactive options:
 <CTRL-f> force LAY file overwrite
 <CTRL-a> apply LASlayers to create new LAS/LAZ file
 
-<i>      pick a point
-<I>      pick a point and draw line to last picked point <SHIFT>+<i>
-<x>      toggle between cross-section and overview
-<CTRL-x> turn cross-section view on / off
+<i>       pick a point
+<I>       pick a point and draw line to last picked point <SHIFT>+<i>
+<x>       turn on and toggle between overview and rectangle / line cross-section 
+<SHIFT>   hold down to pick line instead of rectangle cross-section when in overview 
+<CTRL-x>  overview and rectangle / line cross-section view on / off
 
 <SHIFT> translate mode
 <CTRL>  zoom mode
@@ -180,6 +183,7 @@ overview of all tool-specific switches:
 -holes 10  (or -kill 10)             : remove any triangle from TIN that has an edge length bigger than 10
 -grid 5                              : set raster spacing for visualization of rasterization with <R>
                                        default is 1
+-load_gps_time or -load_gps_second   : also loads GPS time stamps from file and displays them when pressing <i>
 -circles 0.1                         : define structural elements as circles of radius 0.1
 -cones 0.2 0.5                       : define structural elements as cones of radius 0.2 and height 0.5
 -flats 0.1 0.3 0.2                   : define structural elements as flats of small radius 0.1, height 0.3, and large radius 0.2
