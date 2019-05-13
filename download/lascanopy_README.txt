@@ -92,7 +92,17 @@
   [10, 50). In the same manner the option '-d 0.5 2 4 10 50' will
   produce a relative height density raster in which the counts are
   divided by the total number of points and scaled to a percentage.
-
+  
+  The Vertical Complexity Index (VCI) is also implemented and can
+  be computed for different vertical bin sizes with '-vc 1 2 4' or
+  '-vci 2.5 5.0'.
+  
+  The height & intensity metric known as "Height of Median Energy"
+  or "HOME" can be computed via the switch '-hom'. All points above
+  the height cutoff are ordered by their elevation. Then the height
+  is computed at which the sum of intensities of points below and
+  the sum of intensities of points above is identical.
+  
   Metrics also exist for intensities and '-int_min' and '-int_max'
   do the obvious, just like '-int_avg', '-int_qav', '-int_std',
   '-int_ske' or '-int_kur'. Similarly you can produce intensity
