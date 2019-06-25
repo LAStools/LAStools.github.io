@@ -40,6 +40,13 @@
   You can also load more general polygonal plots from a shapefile with
 
   lascanopy -i forest\*.laz -lop polygons.shp -int_p 25 50 75 -centroids -o results.csv
+  
+  If the SHP file with plots has a DBF file with  that contain either an
+  integer number or a string attributes for each plot you can add the name
+  or the index of the field to the argument as shown below:
+  
+  -lop polygons.shp plot_ID
+  -lop polygons.shp 3
 
   The tool can concurrently compute a number height percentiles
   ('-p 5 10 25 50 75 90'), the '-min', the '-max', the average
@@ -162,7 +169,12 @@ and stores the resulting rasters in BIL format using the endings
 
 other commandline arguments are
 
-
+-loc
+-lor
+-files_are_plots
+-use_bb                : raster area specified by bounding box in LAS header
+-use_tile_bb           : raster tile without buffer added by lastile
+-use_orig_bb           : raster tile without buffer added by on-the-fly buffering
 -step 10               : raster with stepsize 10 [default: 20]
 -nrows 512             : raster at most 512 rows
 -ncols 512             : raster at most 512 columns

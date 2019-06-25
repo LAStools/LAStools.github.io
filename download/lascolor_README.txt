@@ -43,6 +43,13 @@
   Here running on multiple '-cores 4' tends to give you a nice
   speed-up. 
 
+  Instead of coloring points it is also possible to classify them
+  based on the pixel they fall into. Use '-classify_as 10' to give
+  all points that fall into a black pixel of a gray or a color image
+  the classification code 10. Alternatively use one of the options
+  '-classify_not_black', '-classify_white', or '-classify_not_white'
+  to color pixels that are not black, white, or not white.
+  
   Please license from martin@rapidlasso.com before using lascolor
   commercially. Please note that the unlicensed version will set
   intensity, gps_time, user data, and point source ID to zero,
@@ -218,6 +225,14 @@ overview of all tool-specific switches:
 -fail                                : fail if license expired or invalid
 -gui                                 : start with files loaded into GUI
 -cores 4                             : process multiple inputs on 4 cores in parallel
+-ignore_class 0 1 3 5 6 7 9          : ignores points with specified classification codes
+-ignore_extended_class 42 43 45 67   : ignores points with specified extended classification codes
+-ignore_single                       : ignores single returns
+-ignore_first                        : ignores first returns
+-ignore_last                         : ignores last returns
+-ignore_first_of_many                : ignores first returns (but only those of multi-returns)
+-ignore_intermediate                 : ignores intermediate returns
+-ignore_last_of_many                 : ignores last returns (but only those of multi-returns)
 -image ortophoto.tif                 : specifies *single* image file to be used for coloring (all) input file(s)
 -imagedir ortophotos                 : specifies directory where correspondingly named image files are located
 -dont_scale_rgb_up                   : copy RGBI values as they are (don't default upscale from 8 to 16 bit)
@@ -231,6 +246,11 @@ overview of all tool-specific switches:
 -rgbnir                              : copies the first four bands of the image into the RGBNIR fields of the LAS file
 -gray or -grey                       : copies the specified '-band 2' into all three RGB channels
 -intensity                           : copies the specified '-band 1' into the intensity field
+-classify_as 10                      : classifies all points falling into a black pixel as 10
+-classify_black                      :            all points falling into a black pixels [default]
+-classify_non_black                  :            all points falling into a non-black pixels
+-classify_white                      :            all points falling into a white pixels
+-classify_non_white                  :            all points falling into a non-white pixels
 -ilay                                : apply all LASlayers found in corresponding *.lay file on read
 -ilay 3                              : apply first three LASlayers found in corresponding *.lay file on read
 -ilaydir E:\my_layers                : look for corresponding *.lay file in directory E:\my_layers
