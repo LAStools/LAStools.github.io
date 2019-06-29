@@ -1,3 +1,4 @@
+29 June 2019 -- lascolor: bug fix for copying '-gray' image into '-intensity' field introduced in version 190623
 26 June 2019 -- lascolor: small bug fix for '-classify_as 8' when input TIF or PNG is RGB color instead of gray
 25 June 2019 -- las2dem, las2iso, las2tin: bug fix for breaklines with repeated vertices and many open breaklines
 23 June 2019 -- NEW: lasdistance classifies or flags points within a certain xy-distance to a polygon or a polyline 
