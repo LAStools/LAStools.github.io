@@ -1,3 +1,4 @@
+18 June 2020 -- LASlib: firt new LAStransforms that allow 16 temporary registers for intermediate computations
  9 May 2020 -- LASlib and all LAStools: fixed PLY reader for files written by Cloud Compare with odd header entry
 13 March 2020 -- lastile: fixed bug in combination of '-cpu64' and 'external_tiling tiles.shp'
 10 March 2020 -- LASlib and all LAStools: enhanced PLY reader to also support "uint" attributes and properties
