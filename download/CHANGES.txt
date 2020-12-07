@@ -1,3 +1,4 @@
+ 7 December 2020 -- fixed new bug introduced 28 September 2020 for command-line combo '-o out.laz -odix _mist -cpu64'
 22 November 2020 -- las2las: when reprojecting only x and y, preserve resolution of z coordinate, if not set explicitely
 11 November 2020 -- lasinfo: new option '-set_vlr_record_id 2 4711' changes 'record ID' field of VLR with index 2
 11 November 2020 -- lasinfo: new option '-set_vlr_user_id 1 "hello martin"' changes 'user ID' field of VLR with index 1
