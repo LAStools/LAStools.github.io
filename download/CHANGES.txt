@@ -1,3 +1,8 @@
+28 January 2021 -- NEW: lasdatum: perform a datum transform using an NTv2 grid using the GRID.gsb file provided by the national survey
+22 January 2021 -- lasduplicate: new option '-unique_xyzt' for marking/removing duplicates where XYZ and GPS time stamps match
+17 January 2021 -- lascolor: new options: -band_into_red 0 -band_into_green 1 -band_into_blue 2 -band_into_nir 3 -band_into_intensity 5
+15 January 2021 -- LASlib: new magic while reading files: '-divide_registers 0 1 2' and '-subtract_registers 0 1 2'
+14 January 2021 -- las2las: new option to add an empty VLR: -add_empty_vlr "hello martin" 4711 "i like laser chickens"
  7 December 2020 -- fixed new bug introduced 28 September 2020 for command-line combo '-o out.laz -odix _mist -cpu64'
 22 November 2020 -- las2las: when reprojecting only x and y, preserve resolution of z coordinate, if not set explicitely
 11 November 2020 -- lasinfo: new option '-set_vlr_record_id 2 4711' changes 'record ID' field of VLR with index 2
