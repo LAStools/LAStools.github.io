@@ -1,3 +1,6 @@
+23 March 2021 -- lasdatum: now also supports seven parameter helmert transforms via option '-seven ......'
+21 March 2021 -- LASlib: new LAStransform '-set_NIR 255'
+16 February 2021 -- LASlib and all LAStools: better detection and ERROR when your LAZ file has corruptions in the LAS header
 28 January 2021 -- NEW: lasdatum: perform a datum transform using an NTv2 grid using the GRID.gsb file provided by the national survey
 22 January 2021 -- lasduplicate: new option '-unique_xyzt' for marking/removing duplicates where XYZ and GPS time stamps match
 17 January 2021 -- lascolor: new options: -band_into_red 0 -band_into_green 1 -band_into_blue 2 -band_into_nir 3 -band_into_intensity 5
