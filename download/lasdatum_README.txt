@@ -4,7 +4,15 @@
 
   Transforms LiDAR from one horizontal datum to another using
   either a NTv2 grid or a seven parameter helmert transform.
-  
+
+  Note that there are two ways of specifying the rotational part
+  of the Helmert transform. The Position Vector Transformation (PVR)
+  convention and the Coordinate Frame Rotation (CFR) convention.
+  The difference between them is that their rotation matrix is the
+  of the other. You need to specify in the command line which of
+  the two you are using by adding either '-pvr' and '-cfr' to the
+  command line.
+
   Please license from martin@rapidlasso.com before using lasdatum
   commercially. Please note that the unlicensed version will set
   intensity, gps_time, user data, and point source ID to zero,
@@ -46,20 +54,22 @@ lasdatum ^
 -target_epsg 31256 ^
 -o mgi\test_tile.laz
 
-:: from MGI / Austria GK East to ETRS89 / UTM zone 33N using a seven parameter transform
+:: from MGI / Austria GK East to ETRS89 / UTM zone 33N using a seven parameter transform in CFR convention
 
 lasdatum ^
 -i mgi\test_tile.laz ^
 -epsg 31256 ^
+-cvr ^
 -seven 577.326,90.129,463.920,-5.137,-1.474,-5.297,2.423 ^
 -target_epsg 25833 ^
 -o utm33\test_tile.laz
 
-:: from ETRS89 / UTM zone 33N to MGI / Austria GK East using a seven parameter transform
+:: from ETRS89 / UTM zone 33N to MGI / Austria GK East using a seven parameter transform in CFR convention
 
 lasdatum ^
 -i utm33\test_tile.laz ^
 -epsg 25833 ^
+-cvr ^
 -seven 577.326,90.129,463.920,-5.137,-1.474,-5.297,2.423 ^
 -backward ^
 -target_epsg 31256 ^
