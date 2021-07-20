@@ -1,3 +1,10 @@
+19 July 2021 -- NEW: lasvdatum: vertically moves elevation using ellipsoidal / geoidal difference grids in GTX format
+15 July 2021 -- lasinfo: terribly stupid bug fixed for recently added option '-delete_empty' 
+12 July 2021 -- lasview: bug fix in saving on manual edits. now multiple edits can be saved without restarting the viewer.
+11 July 2021 -- lassort: catching quicksort failure with proper ERROR when stack overflow due to exzessive duplicate points
+10 July 2021 -- lascopy: added '-keypoint_flag', '-synthetic_flag' and '-overlap_flag' so that all flags can be copied
+ 6 July 2021 -- Potree16: fix for measuring tool bug introduced by recent Google Chrome and Microsoft Edge browser update
+ 5 July 2021 -- NEW: lasprobe: handy tool to probe the elevation of one or many LiDAR files at one indicated x / y position
 15 June 2021 -- LASlib: new '-clamp_RGB_to_8bit' transform useful after '-scale_rgb 0.07 0.05 0.05' to avoid 8 bit overflow
 10 June 2021 -- lasgrid: added '-color_map color_map.txt' to map small values from 0 to 63 to specified RGB color 
 10 June 2021 -- lasinfo: new option '-delete_empty' for deleting LAS files with zero points
