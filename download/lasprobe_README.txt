@@ -25,7 +25,7 @@
 
   For updates check the website or join the LAStools mailing list.
 
-  http://rapidlasso.com/
+  https://rapidlasso.de/
   http://lastools.org/
   http://groups.google.com/group/lastools/
   http://twitter.com/lastools/
@@ -409,7 +409,7 @@ Fast AOI Queries for LAS/LAZ with spatial indexing LAX files
   -inside min_x min_y max_x max_y
   -inside_tile ll_x ll_y size
   -inside_circle center_x center_y radius
-LAStools (by martin@rapidlasso.com) version 210628
+LAStools (by info@rapidlasso.de) version 210628
 usage:
 lasprobe -i fusa.laz -probe 277760.00 6122260
 lasprobe -i fusa.laz -keep_class 2 -probe 277760.00 6122260
@@ -422,4 +422,4 @@ lasprobe -h
 
 ---------------
 
-if you find bugs let me (martin.isenburg@rapidlasso.com) know.
+if you find bugs let me (info@rapidlasso.de) know.

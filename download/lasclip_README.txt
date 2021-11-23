@@ -18,7 +18,7 @@
   Sometimes polygons describe donut-shaped objects such as lakes
   with an island. Here the winding order of the lake with be CW
   and that of the island will be CCW. In order to correcly clip
-  or classify only the lake (but now the island) the command line
+  or classify only the lake (but not the island) the command line
   option '-donuts' needs to be added.
 
   There is an option called '-split' that splits the input LiDAR
@@ -42,7 +42,7 @@
   can be used together with the TO_core_last_zoom.las or the
   TO_core_last.las data set to clip away the Toronto city hall.
 
-  Please license from martin.isenburg@rapidlasso.com to use lasclip
+  Please license from info@rapidlasso.de to use lasclip
   commercially.
 
   For updates check the website or join the LAStools mailing list.
@@ -318,7 +318,7 @@ Supported LAS Outputs
   -olas -olaz -otxt -obin -oqfit (specify format)
   -stdout (pipe to stdout)
   -nil    (pipe to NULL)
-LAStools (by martin@rapidlasso.com) version 150526 (commercial)
+LAStools (by info@rapidlasso.de) version 150526 (commercial)
 usage:
 lasclip -i *.las -poly polygon.shp -v
 lasclip -i *.txt -iparse xyzt -poly polygon.shp -otxt -oparse xyzt
@@ -331,4 +331,4 @@ lasclip -i forest\*.laz -merged -poly plots.shp -split -o plots.laz
 
 ---------------
 
-if you find bugs let me (martin.isenburg@rapidlasso.com) know.
+if you find bugs let me (info@rapidlasso.de) know.

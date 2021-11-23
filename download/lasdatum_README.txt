@@ -13,7 +13,7 @@
   which of the two you are using by adding either '-pvr' and '-cfr'
   to the command line.
 
-  Please license from martin@rapidlasso.com before using lasdatum
+  Please license from info@rapidlasso.de before using lasdatum
   commercially. Please note that the unlicensed version will set
   intensity, gps_time, user data, and point source ID to zero,
   slightly change the LAS point order, and randomly add a tiny
@@ -22,7 +22,7 @@
 
   For updates check the website or join the LAStools mailing list.
 
-  http://rapidlasso.com/
+  http://rapidlasso.de/
   http://lastools.org/
   http://groups.google.com/group/lastools/
   http://twitter.com/lastools/
@@ -365,7 +365,7 @@ Supported LAS Outputs
   -olas -olaz -otxt -obin -oqfit (specify format)
   -stdout (pipe to stdout)
   -nil    (pipe to NULL)
-LAStools (by martin.isenburg@rapidlasso.com) version 210323 (commercial)
+LAStools (by info@rapidlasso.de) version 210323 (commercial)
 usage:
 lasdatum -i in.laz -grid datumshift.gsb -o out.laz
 lasdatum -i in.laz -epsg 31256 -grid AT_GRID.gsb -target_epsg 25833 -o out.laz
@@ -376,4 +376,4 @@ lasdatum -h
 
 -------------
 
-if you find bugs let me (martin@rapidlasso.com) know.
+if you find bugs let me (info@rapidlasso.de) know.
