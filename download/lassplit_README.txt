@@ -2,7 +2,7 @@
 
   lassplit:
 
-  splits the input file(s) into several output files based on
+  Splits the input file(s) into several output files based on
   various parameters. By default lassplit split a combined LAS
   file into its original, individual flight lines by splitting
   based on the point source ID of the points. Other options are
@@ -35,16 +35,14 @@
      -rescale 0.01 0.01 0.001
      -reoffset 600000 4000000 0
 
-  For updates check the website or join the LAStools mailing list.
-
-  http://lastools.org/
+  For updates check the website or join the LAStools google group.
+  
+  https://rapidlasso.de/
   http://groups.google.com/group/lastools/
-  http://twitter.com/lastools/
-  http://facebook.com/lastools/
-  http://linkedin.com/groups?gid=4408378
 
-  Martin @lastools
-
+****************************************************************
+see also:
+  lasmerge - Merge or split lidar data files by number of points
 ****************************************************************
 
 example usage:
@@ -394,7 +392,7 @@ Supported LAS Outputs
   -olas -olaz -otxt -obin -oqfit (specify format)
   -stdout (pipe to stdout)
   -nil    (pipe to NULL)
-LAStools (by info@rapidlasso.de) version 200929 (commercial)
+LAStools (by info@rapidlasso.de) version 211206 (commercial)
 usage:
 lassplit -i *.las
 lassplit -i *.laz -merged -o flightlines.las
@@ -412,4 +410,4 @@ lassplit -h
 
 ---------------
 
-if you find bugs let me (info@rapidlasso.de) know.
+if you find bugs let us (support@rapidlasso.com) know.

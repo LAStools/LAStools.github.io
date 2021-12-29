@@ -1,3 +1,4 @@
+01 December 2021 -- lasclip: merge split output with same shape names
 18 November 2021 -- LASlib: new LAStransform '-force_RGB' 
 12 November 2021 -- LASlib/LASzip merge, bug fix memory leak; add some x64 tool versions 
 19 July 2021 -- NEW: lasvdatum: vertically moves elevation using ellipsoidal / geoidal difference grids in GTX format
