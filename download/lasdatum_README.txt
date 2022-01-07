@@ -22,7 +22,7 @@
 
   For updates check the website or join the LAStools mailing list.
 
-  http://rapidlasso.de/
+  https://rapidlasso.de/
   http://lastools.org/
   http://groups.google.com/group/lastools/
   http://twitter.com/lastools/
@@ -59,7 +59,7 @@ lasdatum ^
 lasdatum ^
 -i mgi\test_tile.laz ^
 -epsg 31256 ^
--cfr ^
+-cvr ^
 -seven 577.326,90.129,463.920,-5.137,-1.474,-5.297,2.423 ^
 -target_epsg 25833 ^
 -o utm33\test_tile.laz
@@ -376,4 +376,4 @@ lasdatum -h
 
 -------------
 
-if you find bugs let me (info@rapidlasso.de) know.
+if you find bugs let us (info@rapidlasso.de) know.
