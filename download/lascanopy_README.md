@@ -824,7 +824,7 @@ lascanopy -i 2014_07.laz -ll 470000 5550000 -step 10 -ncols 500 -nrows 200 -cov 
 -odtm                    : output as dtm (Digital Terrain Models)  
 -oflt                    : output as flt (Float file format)  
 -oforce                  : force output creation also on errors or warnings  
--oimg                    : output as img (Image file)  
+-oimg                    : output as img (Image file) (Win32 only)  
 -ojpg                    : output as jpg (JPG image)  
 -olaz                    : output as LAZ (compressed LAS)  
 -opng                    : output as png (PNG image)  

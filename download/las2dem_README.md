@@ -797,7 +797,7 @@ generated KML file:
 -odtm                    : output as dtm (Digital Terrain Models)  
 -oflt                    : output as flt (Float file format)  
 -oforce                  : force output creation also on errors or warnings  
--oimg                    : output as img (Image file)  
+-oimg                    : output as img (Image file) (Win32 only) 
 -ojpg                    : output as jpg (JPG image)  
 -olaz                    : output as LAZ (compressed LAS)  
 -opng                    : output as png (PNG image)  
