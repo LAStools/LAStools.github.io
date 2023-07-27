@@ -626,7 +626,7 @@ las2txt -i lidar.las -parse xyztE -extra 99 -o ascii.txt
 -oparse [xyz]    : parse on-the-fly to ASCII using fields [xyz]  
 -oqi             : output in QFIT format (.qi)(ATM project, NASA)  
 -oscale_rgb [n]  : scale output RGB by [n]  
--osep [n]        : set text output separator as char [n]  
+-osep [sep]      : set text output separator as [sep](see table below)  
 -otxt            : output as textfile  
 -owrl            : output as VRLM (Virtual Reality Modeling Language) text  
 -pipe_on         : write output to command pipe, see also -std_in  
@@ -688,6 +688,18 @@ The other supported entries are:
     V : the waveform data  
     E : extra string (-extra)  
     
+### output separator
+The '-osep [sep]' argument specifies the output format of a text(xyz) output.
+Supported [sep] values:
+
+  comma
+  tab
+  dot
+  colon
+  semicolon
+  hyphen
+  space
+
 
 ## License
 

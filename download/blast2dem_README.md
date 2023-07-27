@@ -724,7 +724,6 @@ file that georeferences the PNG file in Google Earth
 -ojpg                    : output as jpg (JPG image)  
 -olaz                    : output as LAZ (compressed LAS)  
 -opng                    : output as png (PNG image)  
--osep [n]                : set text output separator as char [n]  
 -otif                    : output as GeoTIFF image  
 -oxyz                    : output as xyz textfile  
 -pipe_on                 : write output to command pipe, see also -std_in  
