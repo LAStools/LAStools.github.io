@@ -9,27 +9,27 @@ Allows adding a VLR to the header with projection information.
 
 ## Examples
 
-    shp2las lidar.shp
+    shp2las64 lidar.shp
 
 converts the ESRI's Shapefile 'lidar.shp' to the LAS file 'lidar.las'
 
 
-    shp2las -compress lidar.shp
+    shp2las64 -compress lidar.shp
 
 converts 'lidar.shp' to the compressed LAZ file 'lidar.laz'
 
 
-    shp2las -set_scale 0.001 0.001 0.001 -i lidar.shp -o lidar.las
+    shp2las64 -set_scale 0.001 0.001 0.001 -i lidar.shp -o lidar.las
 
 converts 'lidar.shp' to the LAS file 'lidar.las' with the specified scale
 
 
-    shp2las -i lidar.shp -o lidar.laz -set_offset 500000 4000000
+    shp2las64 -i lidar.shp -o lidar.laz -set_offset 500000 4000000
 
 converts 'lidar.shp' to the compressed LAZ file 'lidar.laz' with the specified offset
 
 
-    shp2las -i lidar.shp -o lidar.las -v
+    shp2las64 -i lidar.shp -o lidar.las -v
 
 converts 'lidar.shp' to the LAS file 'lidar.las' and outputs some of
 the header information found in the SHP file
@@ -66,7 +66,6 @@ the header information found in the SHP file
 -neighbors [n]     : set neighbors filename or wildcard [n]  
 -neighbors_lof [n] : set neighbors list of files [fnf]  
 -stored            : use in memory reader  
--unique            : remove duplicate points  
 
 ### Color
 -clamp_RGB_to_8bit                  : limit RGB values to 8 bit (otherwise: 16 bit)  
@@ -615,6 +614,7 @@ the header information found in the SHP file
 -iskip [n]      : skip [n] lines at the beginning of the text input  
 -itxt           : expect input as text file  
 -lof [fnf]      : use input out of a list of files [fnf]  
+-unique         : remove duplicate files in a -lof list  
 -merged         : merge input files  
 -stdin          : pipe from stdin  
 
@@ -717,5 +717,5 @@ To get further support see our
 Check for latest updates at
 https://rapidlasso.de/category/blog/releases/
 
-If you have any suggestions please let us (support@rapidlasso.de) know.
-Jochen @rapidlasso
+If you have any suggestions please let us (info@rapidlasso.de) know.
+

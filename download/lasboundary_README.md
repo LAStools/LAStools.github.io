@@ -55,60 +55,60 @@ still run the older version of the algorithm that was limited to
                  
 ## Examples
 
-    lasboundary -i *.las -oshp
+    lasboundary64 -i *.las -oshp
 
 computes the boundaries of all LAS file '*.las' individually and stores 
 the result to ESRI's Shapefiles '*.shp'.
 
 
-    lasboundary -i *.las -merged -o merged.shp
+    lasboundary64 -i *.las -merged -o merged.shp
 
 computes the boundaries of the merged points from all LAS file '*.las'
 and stores the result to the ESRI Shapefile 'merged.shp'.
 
 
-    lasboundary -i lidar1.las lidar2.las -merged -o lidar_boundary.shp
+    lasboundary64 -i lidar1.las lidar2.las -merged -o lidar_boundary.shp
 
 computes the boundary of the LAS file created from merging 'lidar1.las'
 and 'lidar2.las' and stores the result to 'lidar_boundary.shp'.
 
 
-    lasboundary -i lidar1.las lidar2.las -otxt
+    lasboundary64 -i lidar1.las lidar2.las -otxt
 
 the same but without merging and storing the results to ASCII files.
 
 
-    lasboundary -i lidar1.las lidar2.las -oshp -concavity 100
+    lasboundary64 -i lidar1.las lidar2.las -oshp -concavity 100
 
 the same but with creating less detailed concavities. the default
 value for concavities is 50 (meaning edges along the convex hull
 that are shorter than 50 units get "pushed" inwards)
 
 
-    lasboundary -i lidar.las -o lidar_boundary.kml -utm 10T -disjoint
+    lasboundary64 -i lidar.las -o lidar_boundary.kml -utm 10T -disjoint
 
 computes a disjoint hull instead of a concave hull and uses a utm
 projeciton 10T to store the boundary in geo-referenced KML format
 
 
-    lasboundary -i lidar.las -o lidar_holes.kml -disjoint -holes
+    lasboundary64 -i lidar.las -o lidar_holes.kml -disjoint -holes
 
 same as before but assumes geo-referencing is in the KML file. it
 also computes holes in the interior of the boundary.
 
 
-lasboundary -h  
-lasboundary -i *.las -merged -o merged.shp  
-lasboundary -i *.laz -owkt -concavity 100 (default is 50)  
-lasboundary -i flight???.las -feet -oshp -disjoint  
-lasboundary -i tiles\*.laz -use_bb -oshp  
-lasboundary -i tiles\*.laz -use_lax -odir outlines -okml -utm 32N  
-lasboundary -i Serpent.las -disjoint -concavity 10 -holes -o outline.kml  
-lasboundary -i *.laz -merged -o merged.kml -disjoint -utm 17S  
-lasboundary -i lidar.las -o boundary.kml -longlat -concavity 0.00002  
-lasboundary -i *.txt -iparse ssxyz -otxt -first_only  
-lasboundary -i tiles\*.laz -merged -keep_class 4 5 -convavity 2.5 -o vegetation_layer.shp  
-lasboundary -i lidar.las -keep_class 6 -convavity 1.5 -o building_footprints.shp
+lasboundary64 -h  
+lasboundary64 -i *.las -merged -o merged.shp  
+lasboundary64 -i *.laz -owkt -concavity 100 (default is 50)  
+lasboundary64 -i flight???.las -feet -oshp -disjoint  
+lasboundary64 -i tiles\*.laz -use_bb -oshp  
+lasboundary64 -i tiles\*.laz -use_lax -odir outlines -okml -utm 32N  
+lasboundary64 -i Serpent.las -disjoint -concavity 10 -holes -o outline.kml  
+lasboundary64 -i *.laz -merged -o merged.kml -disjoint -utm 17S  
+lasboundary64 -i lidar.las -o boundary.kml -longlat -concavity 0.00002  
+lasboundary64 -i *.txt -iparse ssxyz -otxt -first_only  
+lasboundary64 -i tiles\*.laz -merged -keep_class 4 5 -convavity 2.5 -o vegetation_layer.shp  
+lasboundary64 -i lidar.las -keep_class 6 -convavity 1.5 -o building_footprints.shp
 
 
 ## lasboundary specific arguments
@@ -117,7 +117,6 @@ lasboundary -i lidar.las -keep_class 6 -convavity 1.5 -o building_footprints.shp
 -concavity [n]        : use [n] as granularity for grow concavities inwards (minimum: twice the pulse spacing) (default=50)  
 -convex               : compute a convex hull (same as setting concavity to infinite)  
 -convex_hull          : compute a convex hull (same as setting concavity to infinite)  
--cores [n]            : process multiple inputs on [n] cores in parallel  
 -disjoint             : allow polygon to fragment for point clusters farther than concavity apart  
 -disjoint_hull        : allow polygon to fragment for point clusters farther than concavity apart  
 -extra_pass           : do extra read pass to count points (only makes sense when filtering)  
@@ -137,13 +136,14 @@ lasboundary -i lidar.las -keep_class 6 -convavity 1.5 -o building_footprints.shp
 -week_to_adjusted [n] : converts time stamps from GPS week [n] to Adjusted Standard GPS  
 
 ### Basics
--cpu64   : start 64 bit executable (instead of default 32 bit executable)  
--fail    : fail if license expired or invalid  
--gui     : start with files loaded into GUI  
--h       : print help output  
--license : show license information  
--v       : verbose output (print extra information)  
--version : reports this tool's version number  
+-cpu64     : start 64 bit executable (instead of default 32 bit executable)  
+-cores [n] : process multiple inputs on [n] cores in parallel  
+-fail      : fail if license expired or invalid  
+-gui       : start with files loaded into GUI  
+-h         : print help output  
+-license   : show license information  
+-v         : verbose output (print extra information)  
+-version   : reports this tool's version number  
 
 ## Module arguments
 
@@ -155,7 +155,6 @@ lasboundary -i lidar.las -keep_class 6 -convavity 1.5 -o building_footprints.shp
 -neighbors [n]            : set neighbors filename or wildcard [n]  
 -neighbors_lof [n]        : set neighbors list of files [fnf]  
 -stored                   : use in memory reader  
--unique                   : remove duplicate points  
 
 ### Color
 -clamp_RGB_to_8bit                  : limit RGB values to 8 bit (otherwise: 16 bit)  
@@ -702,6 +701,7 @@ lasboundary -i lidar.las -keep_class 6 -convavity 1.5 -o building_footprints.shp
 -iskip [n]      : skip [n] lines at the beginning of the text input  
 -itxt           : expect input as text file  
 -lof [fnf]      : use input out of a list of files [fnf]  
+-unique         : remove duplicate files in a -lof list  
 -merged         : merge input files  
 -stdin          : pipe from stdin  
 
@@ -785,5 +785,5 @@ To get further support see our
 Check for latest updates at
 https://rapidlasso.de/category/blog/releases/
 
-If you have any suggestions please let us (support@rapidlasso.de) know.
-Jochen @rapidlasso
+If you have any suggestions please let us (info@rapidlasso.de) know.
+

@@ -32,13 +32,13 @@ biggly when beam switches are ignored.
 
 ## Examples
 
-    lasoptimize -i final\*.las -odir optimized
+    lasoptimize64 -i final\*.las -odir optimized
 
 optimizes all LAS files in the 'final' folder to the 'optimized'
 folder while over-writing any existing file.
 
 
-    lasoptimize -i final\*.laz -scanner_channel_in_point_source_ID -odir optimized
+    lasoptimize64 -i final\*.laz -scanner_channel_in_point_source_ID -odir optimized
 
 optimizes all LAZ files in the 'final' folder to the 'optimized'
 folder while over-writing any existing file. The files are from
@@ -47,8 +47,8 @@ flightline number that is stored in the 'pount source ID' field
 of each point.
 
 
-    lasoptimize -h
-    lasoptimize -i lidar.las -o lidar.laz
+    lasoptimize64 -h
+    lasoptimize64 -i lidar.las -o lidar.laz
 
 
 ## lasoptimize specific arguments
@@ -92,7 +92,6 @@ of each point.
 -neighbors [n]     : set neighbors filename or wildcard [n]  
 -neighbors_lof [n] : set neighbors list of files [fnf]  
 -stored            : use in memory reader  
--unique            : remove duplicate points  
 
 ### Color
 -clamp_RGB_to_8bit                  : limit RGB values to 8 bit (otherwise: 16 bit)  
@@ -640,6 +639,7 @@ of each point.
 -iskip [n]      : skip [n] lines at the beginning of the text input  
 -itxt           : expect input as text file  
 -lof [fnf]      : use input out of a list of files [fnf]  
+-unique         : remove duplicate files in a -lof list  
 -merged         : merge input files  
 -stdin          : pipe from stdin  
 
@@ -738,5 +738,5 @@ To get further support see our
 Check for latest updates at
 https://rapidlasso.de/category/blog/releases/
 
-If you have any suggestions please let us (support@rapidlasso.de) know.
-Jochen @rapidlasso
+If you have any suggestions please let us (info@rapidlasso.de) know.
+

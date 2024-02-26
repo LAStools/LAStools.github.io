@@ -24,46 +24,46 @@ value, unless you add '-xyz' to the command line so that the x abd
 
 ## Examples
 
-    lasprobe -i ..\data\fusa.laz -probe 277760.00 6122260 52.14
+    lasprobe64 -i ..\data\fusa.laz -probe 277760.00 6122260 52.14
 
 probes all LiDAR points including buildings, wires and vegetation
 and outputs the computed elevation "52.14" to stdout
 
 
-    lasprobe -i ..\data\fusa.laz -probe 277760.00 6122260 -o mist.txt
+    lasprobe64 -i ..\data\fusa.laz -probe 277760.00 6122260 -o mist.txt
 
 probes all LiDAR points including buildings, wires and vegetation
 and outputs the computed elevation "52.14" to text file 'mist.txt'
 
 
-    lasprobe -i ..\data\fusa.laz -probe 277760.00 6122260 -xyz 277760.00 6122260.00 52.14
+    lasprobe64 -i ..\data\fusa.laz -probe 277760.00 6122260 -xyz 277760.00 6122260.00 52.14
 
 probes all LiDAR points including buildings, wires and vegetation
 and outputs the input probe coordinates together with the computed
 elevation "52.14" to stdout
 
 
-    lasprobe -i ..\data\fusa.laz -probe 277760.00 6122260 -xyz -o mist.txt
+    lasprobe64 -i ..\data\fusa.laz -probe 277760.00 6122260 -xyz -o mist.txt
 
 probes all LiDAR points including buildings, wires and vegetation
 and outputs the input probe coordinates together with the computed
 elevation "52.14" to text file 'mist.txt'
 
 
-    lasprobe -i ..\data\fusa.laz -keep_class 2 -probe 277760.00 6122260 42.66
+    lasprobe64 -i ..\data\fusa.laz -keep_class 2 -probe 277760.00 6122260 42.66
 
 probes only LiDAR with classification code 2 (aka ground) and
 outputs the computed elevation "42.66" to stdout
 
 
-    lasprobe -i ..\data\fusa.laz -keep_class 2 -probe 277760.00 6122260 277760.00 6122260 42.66
+    lasprobe64 -i ..\data\fusa.laz -keep_class 2 -probe 277760.00 6122260 277760.00 6122260 42.66
 
 probes only LiDAR with classification code 2 (aka ground) and
 outputs the input probe coordinates together with the computed
  elevation "42.66" to stdout
 
 
-    lasprobe -i ..\data\fusa.laz -probe 277760.00 6122250
+    lasprobe64 -i ..\data\fusa.laz -probe 277760.00 6122250
 WARNING: sampling infinite TIN triangle suggests insufficient LIDAR coverage.
 52.20
 
@@ -76,24 +76,24 @@ In case your probe is well inside the LiDAR coverage you may
 need to increase your '-step 5' default to '-step 10' or more
 
 
-    lasprobe -i ..\data\fusa.laz -keep_class 2 -probe 277812.23 6122332.31
+    lasprobe64 -i ..\data\fusa.laz -keep_class 2 -probe 277812.23 6122332.31
 WARNING: none of 277573 points covered probe. all filtered or too far.
 
 probes only the ground points at the center location of a huge building
 such that all ground points are farther away than 5 meters.
 
 
-    lasprobe -i ..\data\fusa.laz -keep_class 2 -probe 277812.23 6122332.31
+    lasprobe64 -i ..\data\fusa.laz -keep_class 2 -probe 277812.23 6122332.31
 WARNING: none of 277573 points covered probe. all filtered or too far.
 
-    lasprobe -i ..\data\fusa.laz -keep_class 2 -probe 277812.23 6122332.31 -step 10
+    lasprobe64 -i ..\data\fusa.laz -keep_class 2 -probe 277812.23 6122332.31 -step 10
 WARNING: none of 277573 points covered probe. all filtered or too far.
 
-    lasprobe -i ..\data\fusa.laz -keep_class 2 -probe 277812.23 6122332.31 -step 20
+    lasprobe64 -i ..\data\fusa.laz -keep_class 2 -probe 277812.23 6122332.31 -step 20
 WARNING: sampling infinite TIN triangle suggests insufficient LIDAR coverage.
 45.26
 
-    lasprobe -i ..\data\fusa.laz -keep_class 2 -probe 277812.23 6122332.31 -step 25
+    lasprobe64 -i ..\data\fusa.laz -keep_class 2 -probe 277812.23 6122332.31 -step 25
 45.28
 
 probes only the ground points at the center location of a huge building
@@ -105,14 +105,14 @@ center of the large police station interpolated from the grounds points
 outside of of building
 
 
-lasprobe -h  
-lasprobe -i fusa.laz -probe 277760.00 6122260  
-lasprobe -i fusa.laz -keep_class 2 -probe 277760.00 6122260  
-lasprobe -i fusa.laz -keep_class 2 -probe 277812.23 6122332.31 -step 10  
-lasprobe -i fusa.laz -keep_class 2 -probe 277812.23 6122332.31 -step 25  
-lasprobe -i fusa.laz -keep_class 2 -probe 277760.00 6122260 -xyz  
-lasprobe -i fusa.laz -keep_class 2 -probe 277760.00 6122260 -o probe.txt  
-lasprobe -i fusa.laz -keep_class 2 -probe 277760.00 6122260 -o probe.txt -xyz
+lasprobe64 -h  
+lasprobe64 -i fusa.laz -probe 277760.00 6122260  
+lasprobe64 -i fusa.laz -keep_class 2 -probe 277760.00 6122260  
+lasprobe64 -i fusa.laz -keep_class 2 -probe 277812.23 6122332.31 -step 10  
+lasprobe64 -i fusa.laz -keep_class 2 -probe 277812.23 6122332.31 -step 25  
+lasprobe64 -i fusa.laz -keep_class 2 -probe 277760.00 6122260 -xyz  
+lasprobe64 -i fusa.laz -keep_class 2 -probe 277760.00 6122260 -o probe.txt  
+lasprobe64 -i fusa.laz -keep_class 2 -probe 277760.00 6122260 -o probe.txt -xyz
 
 
 ## lasprobe specific arguments
@@ -144,7 +144,6 @@ lasprobe -i fusa.laz -keep_class 2 -probe 277760.00 6122260 -o probe.txt -xyz
 -neighbors [n]     : set neighbors filename or wildcard [n]  
 -neighbors_lof [n] : set neighbors list of files [fnf]  
 -stored            : use in memory reader  
--unique            : remove duplicate points  
 
 ### Color
 -clamp_RGB_to_8bit                  : limit RGB values to 8 bit (otherwise: 16 bit)  
@@ -622,6 +621,7 @@ lasprobe -i fusa.laz -keep_class 2 -probe 277760.00 6122260 -o probe.txt -xyz
 -iskip [n]      : skip [n] lines at the beginning of the text input  
 -itxt           : expect input as text file  
 -lof [fnf]      : use input out of a list of files [fnf]  
+-unique         : remove duplicate files in a -lof list  
 -merged         : merge input files  
 -stdin          : pipe from stdin  
 
@@ -690,5 +690,5 @@ To get further support see our
 Check for latest updates at
 https://rapidlasso.de/category/blog/releases/
 
-If you have any suggestions please let us (support@rapidlasso.de) know.
-Jochen @rapidlasso
+If you have any suggestions please let us (info@rapidlasso.de) know.
+

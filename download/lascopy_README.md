@@ -22,12 +22,12 @@ copies the requested attribute in the order the point are in.
 
 ## Examples
 
-lascopy -h  
-lascopy -i source.las -i target.las -o result.las  
-lascopy -i source.laz -i target.laz -o result.laz  
-lascopy -i source.laz -i target.laz -odix _copied -olaz  
-lascopy -i source.laz -i target.laz -classification -o result.laz  
-lascopy -i source.laz -i target.laz -classification -zero -o result.laz
+lascopy64 -h  
+lascopy64 -i source.las -i target.las -o result.las  
+lascopy64 -i source.laz -i target.laz -o result.laz  
+lascopy64 -i source.laz -i target.laz -odix _copied -olaz  
+lascopy64 -i source.laz -i target.laz -classification -o result.laz  
+lascopy64 -i source.laz -i target.laz -classification -zero -o result.laz
 
 
 ## lascopy specific arguments
@@ -70,7 +70,6 @@ lascopy -i source.laz -i target.laz -classification -zero -o result.laz
 -neighbors [n]     : set neighbors filename or wildcard [n]  
 -neighbors_lof [n] : set neighbors list of files [fnf]  
 -stored            : use in memory reader  
--unique            : remove duplicate points  
 
 ### Color
 -clamp_RGB_to_8bit                  : limit RGB values to 8 bit (otherwise: 16 bit)  
@@ -631,6 +630,7 @@ lascopy -i source.laz -i target.laz -classification -zero -o result.laz
 -iskip [n]      : skip [n] lines at the beginning of the text input  
 -itxt           : expect input as text file  
 -lof [fnf]      : use input out of a list of files [fnf]  
+-unique         : remove duplicate files in a -lof list  
 -merged         : merge input files  
 -stdin          : pipe from stdin  
 
@@ -733,5 +733,5 @@ To get further support see our
 Check for latest updates at
 https://rapidlasso.de/category/blog/releases/
 
-If you have any suggestions please let us (support@rapidlasso.de) know.
-Jochen @rapidlasso
+If you have any suggestions please let us (info@rapidlasso.de) know.
+

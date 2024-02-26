@@ -9,36 +9,36 @@ can be adjusted up or down.
 
 ## Examples
 
-    lasdistance -i ..\data\lake.laz ^
+    lasdistance64 -i ..\data\lake.laz ^
                 -poly ..\data\lake_breakline.shp ^
                 -o lake.laz
 
 Will classify all points within a range of 4 and step of 0.5 with class 20.   
 
-    lasdistance -i ..\data\lake.laz ^
+    lasdistance64 -i ..\data\lake.laz ^
                 -poly ..\data\lake_breakline.shp ^
                 -distance_xy 10.0 -step_xy 1.0 ^
                 -o lake.laz
 
-    lasdistance -i ..\data\lake.laz ^
+    lasdistance64 -i ..\data\lake.laz ^
                 -poly ..\data\lake_breakline.shp ^
                 -distance_xy 5.0 ^
                 -flag_as_withheld ^
                 -o lake.laz
 
-    lasdistance -i ..\data\lake.laz ^
+    lasdistance64 -i ..\data\lake.laz ^
                 -poly ..\data\lake_breakline.shp ^
                 -distance_xy 20.0 -step_xy 2.0 ^
                 -remove_points ^
                 -o lake.laz
 
-lasdistance -h  
-lasdistance -i in.laz -poly breaklines.shp -o out.laz  
-lasdistance -i in.laz -poly breaklines.shp -distance_xy 5.0 -o out.laz  
-lasdistance -i in.laz -poly breaklines.shp -distance_xy 0.5 -classify_as 6 -o out.laz  
-lasdistance -i in.laz -poly breaklines.shp -distance_xy 5.0 -flag_as_withheld -o out.laz  
-lasdistance -i in.laz -poly breaklines.shp -distance_xy 2.0 -remove_points -o out.laz  
-lasdistance -i in.laz -poly breaklines.shp -distance_xy 5.0 -step_xy 1.0 -o out.laz
+lasdistance64 -h  
+lasdistance64 -i in.laz -poly breaklines.shp -o out.laz  
+lasdistance64 -i in.laz -poly breaklines.shp -distance_xy 5.0 -o out.laz  
+lasdistance64 -i in.laz -poly breaklines.shp -distance_xy 0.5 -classify_as 6 -o out.laz  
+lasdistance64 -i in.laz -poly breaklines.shp -distance_xy 5.0 -flag_as_withheld -o out.laz  
+lasdistance64 -i in.laz -poly breaklines.shp -distance_xy 2.0 -remove_points -o out.laz  
+lasdistance64 -i in.laz -poly breaklines.shp -distance_xy 5.0 -step_xy 1.0 -o out.laz
 
 
 ## lasdistance specific arguments
@@ -85,7 +85,6 @@ lasdistance -i in.laz -poly breaklines.shp -distance_xy 5.0 -step_xy 1.0 -o out.
 -neighbors [n]     : set neighbors filename or wildcard [n]  
 -neighbors_lof [n] : set neighbors list of files [fnf]  
 -stored            : use in memory reader  
--unique            : remove duplicate points  
 
 ### Color
 -clamp_RGB_to_8bit                  : limit RGB values to 8 bit (otherwise: 16 bit)  
@@ -645,6 +644,7 @@ lasdistance -i in.laz -poly breaklines.shp -distance_xy 5.0 -step_xy 1.0 -o out.
 -iskip [n]      : skip [n] lines at the beginning of the text input  
 -itxt           : expect input as text file  
 -lof [fnf]      : use input out of a list of files [fnf]  
+-unique         : remove duplicate files in a -lof list  
 -merged         : merge input files  
 -stdin          : pipe from stdin  
 
@@ -747,5 +747,5 @@ To get further support see our
 Check for latest updates at
 https://rapidlasso.de/category/blog/releases/
 
-If you have any suggestions please let us (support@rapidlasso.de) know.
-Jochen @rapidlasso
+If you have any suggestions please let us (info@rapidlasso.de) know.
+

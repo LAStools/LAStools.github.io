@@ -18,16 +18,16 @@ a:visited { color: #91c32e; }
 <BODY>
 <CENTER>
 <p>
-<a href="http://rapidlasso.de"><img src="http://rapidlasso.files.wordpress.com/2012/10/rapidlasso_square_256x2561.png" alt="rapidlasso GmbH"></a><br>
+<a href="http://rapidlasso.de"><img src="https://rapidlasso.de/wp-content/uploads/2023/03/Logo-Rapidlasso.svg" height="256" width="256" alt="rapidlasso GmbH"></a><br>
 </p>
 <H1><FONT face="Arial,Helvetica"><a href="http://rapidlasso.de" style="color: #d70b2a; text-decoration: none;">LAStools</a></H1>
 <br>
 <p>
-<a href="https://rapidlasso.com/2017/10/02/lastools-win-big-at-intergeo-taking-home-two-innovation-awards/">award-winning</a> software for rapid LiDAR processing</FONT>
+<a href="https://rapidlasso.de/lastools-win-big-at-intergeo-taking-home-two-innovation-awards/">award-winning</a> software for rapid LiDAR processing</FONT>
 </p>
 <br>
 </CENTER>
-<H3>Abstract:</H3>
+<H2>Abstract</H2>
 Tools to process LiDAR data files.<br>
 The data files has the ASPRS LAS format (version 1.0-1.4) or the losslessly compressed, but otherwise identical twin, the LAZ format.<br>
 See the product overview or the table below to see what tools and converters we provide.
@@ -37,32 +37,44 @@ LAStools consist of different parts:<br>
 <li>LASzip, the compressing/decompressing API.</li>
 Both parts are for free and open source.<br>
 <li>LAStools toolset.</li>
-Additional tools, based on LASlib and LASzip to process LiDAR data.<br>
-Some of the tools are also free to use.<br>
-Some of them are licensed.<br>
+Additional tools based on LASlib and LASzip for processing LiDAR data.<br>
+Some of the tools are free to use, others are licensed.<br>
 <br>
-All code is written in ultra-light-weight, very efficient and superfast C++.<br>
+All code is written in ultra-lightweight, very efficient, and super-fast C++.<br>
 The basic modules are provided as source code (e.g. for Linux) and as Windows DLL.<br>
 <br>
 LAStools are a collection of highly-efficient, scriptable tools with multi-core batching that process LAS, compressed LAZ, Terrasolid BIN, ESRI Shapefiles, ASCII and others.<br>
 
-<H3>Tool overview:</H3>
+<H2>Tool overview</H2>
+<H2>Open source tools</H2>
 <table>
-<!--
-<tr><td>Tool</td><td>Description</td></tr>
-
-<a href="download/lascanopy_README.md">README</a></li>
-
--->
-<tr><td style="padding-left: 15px;">&nbsp;</td><td><a href="download/laszip_README.md">laszip</a></td><td>powerful, lossless LiDAR compressor that turns large LAS files into much smaller LAZ files that are only 7 - 20 percent of the original file size</td></tr>
-<tr><td></td><td><a href="download/las2dem_README.md">las2dem</a></td><td>rasterizes them into a DEM</td></tr>
-<tr><td></td><td><a href="download/las2iso_README.md">las2iso</a></td><td>extracts, optionally simplified, elevation contours</td></tr>
+<tr><td style="padding-left: 15px;">&nbsp;</td>
+</td><td><a href="download/laszip_README.md">laszip</a></td><td>compresses LAS files to LAZ in high speed without information loss</td></tr>
 <tr><td></td><td><a href="download/las2las_README.md">las2las</a></td><td>filters, transforms, subsamples, clips, thins, ...</td></tr>
+<tr><td></td><td><a href="download/las2txt_README.md">las2txt</a></td><td>turns LAS/LAZ into human-readable and easy-to-parse text</td></tr>
+<tr><td></td><td><a href="download/txt2las_README.md">txt2las</a></td><td>converts LiDAR from standard ASCII to LAS/LAZ</td></tr>
+<tr><td></td><td><a href="download/lascopcindex.md">lascopcindex</a></td><td>creates a COPC *.laz file for a given set of *.las or *.laz files</td></tr>
+<tr><td></td><td><a href="download/lasdiff_README.md">lasdiff</a></td><td>compares LIDAR data of two LAS/LAZ/ASCII files and reports whether they are identical or whether they are different</td></tr>
+<tr><td></td><td><a href="download/lasinfo_README.md">lasinfo</a></td><td>prints out an overview of the contents of a LAS/LAZ file</td></tr>
+<tr><td></td><td><a href="download/lasmerge_README.md">lasmerge</a></td><td>can merge several LAS/LAZ files into one</td></tr>
+<tr><td></td><td><a href="download/lasprecision_README.md">lasprecision</a></td><td>reads LIDAR data in the LAS format and computes statistics about precision "advertised" in the header</td></tr>
+</table>
+<H2>Free tools</H2>
+<table>
+<tr><td style="padding-left: 15px;">&nbsp;</td>
+<tr><td></td><td><a href="download/lasview_README.md">lasview</a></td><td>visualizes the contents of a LAS/LAZ file and can also compute a TIN</td></tr>
+<tr><td></td><td><a href="download/lasvalidate_README.md">lasvalidate</a></td><td>determine if LAS files are conform to the ASPRS LAS specifications</td></tr>
+<tr><td></td><td><a href="download/demzip_README.md">demzip</a></td><td>compresses and uncompresses raster data to RasterLAZ format</td></tr>
+<tr><td></td><td><a href="download/e572las_README.md">e572las</a></td><td>extracts the points from the E57 format and stores them as LAS/LAZ files</td></tr>
+</table>
+<H2>Closed source tools</H2>
+<table>
+<tr><td style="padding-left: 15px;">&nbsp;</td>
+</td><td><a href="download/las2dem_README.md">las2dem</a></td><td>rasters pointclouds (via a TIN) into elevation/slope/intensity/RGB DEMs</td></tr>
+<tr><td></td><td><a href="download/las2iso_README.md">las2iso</a></td><td>extracts, optionally simplified, elevation contours</td></tr>
 <tr><td></td><td><a href="download/las2shp_README.md">las2shp</a></td><td>turns LAS/LAZ into ESRI's Shapefile format</td></tr>
 <tr><td></td><td><a href="download/shp2las_README.md">shp2las</a></td><td>turns an ESRI's Shapefile into LAS/LAZ</td></tr>
 <tr><td></td><td><a href="download/las2tin_README.md">las2tin</a></td><td>triangulates the points of a LAS/LAZ file into a TIN</td></tr>
-<tr><td></td><td><a href="download/las2txt_README.md">las2txt</a></td><td>turns LAS/LAZ into human-readable and easy-to-parse text</td></tr>
-<tr><td></td><td><a href="download/txt2las_README.md">txt2las</a></td><td>converts LiDAR from standard ASCII to LAS/LAZ</td></tr>
 <tr><td></td><td><a href="download/lasboundary_README.md">lasboundary</a></td><td>computes a boundary polygon</td></tr>
 <tr><td></td><td><a href="download/lascanopy_README.md">lascanopy</a></td><td>computes popular forestry metrics and grids them onto a raster</td></tr>
 <tr><td></td><td><a href="download/lasclassify_README.md">lasclassify</a></td><td>classifies buildings and high vegetation (i.e. trees)</td></tr>
@@ -71,7 +83,6 @@ LAStools are a collection of highly-efficient, scriptable tools with multi-core 
 <tr><td></td><td><a href="download/lascontrol_README.md">lascontrol</a></td><td>computes the height at certain x and y control points and reports the difference</td></tr>
 <tr><td></td><td><a href="download/lascopy_README.md">lascopy</a></td><td>copies attributes using the GPS-time stamp and the return number</td></tr>
 <tr><td></td><td><a href="download/lasdatum_README.md">lasdatum</a></td><td>transforms from one horizontal datum to another</td></tr>
-<tr><td></td><td><a href="download/lasdiff_README.md">lasdiff</a></td><td>compares the LIDAR data of two LAS/LAZ/ASCII files and reports whether they are identical or whether they are different</td></tr>
 <tr><td></td><td><a href="download/lasdistance_README.md">lasdistance</a></td><td>classifies, flags, or removes points based on distance from polygonal segments</td></tr>
 <tr><td></td><td><a href="download/lasduplicate_README.md">lasduplicate</a></td><td>removes all duplicate points from a LAS/LAZ/ASCII file</td></tr>
 <tr><td></td><td><a href="download/lasgrid_README.md">lasgrid</a></td><td>grids data onto a raster</td></tr>
@@ -79,15 +90,12 @@ LAStools are a collection of highly-efficient, scriptable tools with multi-core 
 <tr><td></td><td><a href="download/lasground_new_README.md">lasground</a></td><td>redesigned version of lasground for even better bare-earth extraction</td></tr>
 <tr><td></td><td><a href="download/lasheight_README.md">lasheight</a></td><td>computes the height of each LAS point above the ground</td></tr>
 <tr><td></td><td><a href="download/lasindex_README.md">lasindex</a></td><td>creates a *.lax file for a given *.las or *.laz file that contains spatial indexing information</td></tr>
-<tr><td></td><td><a href="download/lasinfo_README.md">lasinfo</a></td><td>prints out an overview of the contents of a LAS/LAZ file</td></tr>
 <tr><td></td><td><a href="download/laslayers_README.md">laslayers</a></td><td>add layer functionality to LAS/LAZ files</td></tr>
-<tr><td></td><td><a href="download/lasmerge_README.md">lasmerge</a></td><td>can merge several LAS/LAZ files into one</td></tr>
 <tr><td></td><td><a href="download/lasnoise_README.md">lasnoise</a></td><td>flags or removes noise points in LAS/LAZ/BIN/ASCII files</td></tr>
 <tr><td></td><td><a href="download/lasoptimize_README.md">lasoptimize</a></td><td>optimizes data for better compression and spatial coherency</td></tr>
 <tr><td></td><td><a href="download/lasoverage_README.md">lasoverage</a></td><td>finds the "overage" of a airborne collect that get covered by multiple flightline</td></tr>
 <tr><td></td><td><a href="download/lasoverlap_README.md">lasoverlap</a></td><td>checks flight line overlap and/or vertical and horizontal alignment</td></tr>
 <tr><td></td><td><a href="download/lasplanes_README.md">lasplanes</a></td><td>finds planar patches of LAS/LAZ points fulfilling a number of user-defineable criteria</td></tr>
-<tr><td></td><td><a href="download/lasprecision_README.md">lasprecision</a></td><td>reads LIDAR data in the LAS format and computes statistics about precision "advertised" in the header</td></tr>
 <tr><td></td><td><a href="download/lasprobe_README.md">lasprobe</a></td><td>probes the elevation of the LIDAR for a given x and y location and reports it to a text file or to stdout</td></tr>
 <tr><td></td><td><a href="download/laspublish_README.md">laspublish</a></td><td>do 3D visualization of LiDAR data in a web browser using the WebGL Potree</td></tr>
 <tr><td></td><td><a href="download/lasreturn_README.md">lasreturn</a></td><td>reports geometric return statistics and repairs 'number of returns' field based on GPS times</td></tr>
@@ -96,35 +104,27 @@ LAStools are a collection of highly-efficient, scriptable tools with multi-core 
 <tr><td></td><td><a href="download/lasthin_README.md">lasthin</a></td><td>implements a simple point thinning algorithm</td></tr>
 <tr><td></td><td><a href="download/lastile_README.md">lastile</a></td><td>creates a tiling of LAS/LAZ files</td></tr>
 <tr><td></td><td><a href="download/lastrack_README.md">lastrack</a></td><td>takes files together with a trajectory file by matching GPS time stamps</td></tr>
-<tr><td></td><td><a href="download/lasvalidate_README.md">lasvalidate</a></td><td>determine if LAS files are conform to the ASPRS LAS specifications</td></tr>
 <tr><td></td><td><a href="download/lasvdatum_README.md">lasvdatum</a></td><td>transforms LiDAR from ellipsoidal to orthometric elevations using a grid</td></tr>
-<tr><td></td><td><a href="download/lasview_README.md">lasview</a></td><td>visualizes the contents of a LAS/LAZ file and can also compute a TIN</td></tr>
 <tr><td></td><td><a href="download/lasvoxel_README.md">lasvoxel</a></td><td>computes a voxelization of points</td></tr>
-<tr><td></td><td><a href="download/laszip_README.md">laszip</a></td><td>compresses LAS files to LAZ in high speed without information loss</td></tr>
-<tr><td></td><td><a href="download/blast2dem_README.md">blast2dem</a></td><td>process billion of LIDAR points from the LAS/LAZ format, triangulates them a seamless TIN, and rasters the TIN onto a DEM that can optionally be tiled</td></tr>
+<tr><td></td><td>and even more...</td><td>see the full <a href="https://rapidlasso.de">product overview</a></td></tr>
+</table>
+<H2>BLAST extension</H2>
+<table>
+<tr><td style="padding-left: 15px;">&nbsp;</td>
+</td><td><a href="download/blast2dem_README.md">blast2dem</a></td><td>process billion of LIDAR points from the LAS/LAZ format, triangulates them a seamless TIN, and rasters the TIN onto a DEM that can optionally be tiled</td></tr>
 <tr><td></td><td><a href="download/blast2iso_README.md">blast2iso</a></td><td>process billion of LIDAR points from the LAS/LAZ format, triangulates them a seamless (!) TIN, and extracts contours at the specified elevations from the TIN</td></tr>
-<tr><td></td><td><a href="download/demzip_README.md">demzip</a></td><td>compresses and uncompresses raster data to RasterLAZ format</td></tr>
-<tr><td></td><td><a href="download/e572las_README.md">e572las</a></td><td>extracts the points from the E57 format and stores them as LAS/LAZ files</td></tr>
-<tr><td></td><td>and even more...</td><td>see the full <a href="https://rapidlasso.de/category/products/">product overview</a></td></tr>
 </table>
 <p>
 All LAStools read, process, and write the compressed format directly without having to first decompress the file. Our easy-to-use, ultra-light-weight, very efficient C++ programming API called LASlib (with LASzip-DLL) makes it easy to add read/write support of compressed LAZ files to your software.<BR>
 </p>
-<H3>Support:</H3>
+<H2>Support:</H2>
 See <a href="https://rapidlasso.de/support">rapidlasso support</a><br>
 <p>
-<H3>Download:</H3>
-There are different download locations for the software.<br>
-Functional this should always be the same. On rapidlasso customers page there are may
-the newest license details linked to the libraries. Also you will find additional
-informations.<br>
-<li>rapidlasso <a href="https://rapidlasso.de/customers/" target="_blank">download area for customers.</a></li>
-<li>Public Download on <a href="download/">github.io</a><br></li>
+<H2>Download:</H2>
+<li>Binaries <a href="https://rapidlasso.de/downloads/" target="_blank">download with or without installer.</a></li>
 <li>Open source part of <a href="https://github.com/LAStools/LAStools">LAStools at github</a><br></li>
 <br>
 See our <a href="download/CHANGES.txt" target="_blank">changelog</a> for latest changes.<br>
 </p>
 </BODY>
 </HTML>
-
-

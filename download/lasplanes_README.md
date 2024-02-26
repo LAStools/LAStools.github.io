@@ -24,22 +24,22 @@ off-planar standard deviation. The surviving planes are output
   
 ## Examples
 
-    lasplanes -i terrestrial_scan.laz -o planes.pef
+    lasplanes64 -i terrestrial_scan.laz -o planes.pef
 
 finds all planar patches in the file 'terrestrial_scan.laz' and
 stores the result in RIEGL's PEF format
 
 
-    lasplanes -i terrestrial_scan.laz -o planes.pef
+    lasplanes64 -i terrestrial_scan.laz -o planes.pef
 
 same as above but outputting the SHP format
 
 
-lasplanes -h  
-lasplanes -i in.las -o planes.shp  
-lasplanes -i in.las -oshp  
-lasplanes -i in.las -o planes.pef  
-lasplanes -i in.las -opef
+lasplanes64 -h  
+lasplanes64 -i in.las -o planes.shp  
+lasplanes64 -i in.las -oshp  
+lasplanes64 -i in.las -o planes.pef  
+lasplanes64 -i in.las -opef
 
 
 ## lasplanes specific arguments
@@ -95,7 +95,6 @@ lasplanes -i in.las -opef
 -neighbors [n]            : set neighbors filename or wildcard [n]  
 -neighbors_lof [n]        : set neighbors list of files [fnf]  
 -stored                   : use in memory reader  
--unique                   : remove duplicate points  
 
 ### Color
 -clamp_RGB_to_8bit                  : limit RGB values to 8 bit (otherwise: 16 bit)  
@@ -643,6 +642,7 @@ lasplanes -i in.las -opef
 -iskip [n]      : skip [n] lines at the beginning of the text input  
 -itxt           : expect input as text file  
 -lof [fnf]      : use input out of a list of files [fnf]  
+-unique         : remove duplicate files in a -lof list  
 -merged         : merge input files  
 -stdin          : pipe from stdin  
 
@@ -726,5 +726,5 @@ To get further support see our
 Check for latest updates at
 https://rapidlasso.de/category/blog/releases/
 
-If you have any suggestions please let us (support@rapidlasso.de) know.
-Jochen @rapidlasso
+If you have any suggestions please let us (info@rapidlasso.de) know.
+

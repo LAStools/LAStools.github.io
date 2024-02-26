@@ -27,27 +27,34 @@ as parameter. Intensity input range of [0..1] will be multiplied
 by 4095 to get nice integer values.
 
 Also allows adding additional attributes to LAS/LAZ files using
-the "Extra Bytes" concept with '-add_attribute'.
+the "Extra Bytes" concept with '-add_attribute'. See samples below.
 
 It is also possible to pipe the ASCII into txt2las. For this you
 will need to add both '-stdin' and '-itxt' to the command-line.
 
+Each line will be parsed according to the parameters of the 
+"-parse" argument.
+If the input file contains a column description in the first line the 
+parse string can be generated automatic by this line.
+A column description can be created by las2txt command. 
+See "parse" section below for valid parse tokens.
+
  
 ## Examples
 
-    txt2las -i lidar.txt.gz -o lidar.las -parse ssxyz
+    txt2las64 -i lidar.txt.gz -o lidar.las -parse ssxyz
 
 converts a gzipped ASCII file and uses the 3rd, 4th, and 5th entry
 of each line as the x, y, and z coordinate of each point
 
 
-    txt2las -i lidar.zip -o lidar.laz -parse ssxyz -utm 14T
+    txt2las64 -i lidar.zip -o lidar.laz -parse ssxyz -utm 14T
 
 same as above for a zipped ASCII file but produces compressed LAZ
 and adds projection info for utm zone with wgs84 
 
 
-    txt2las -i lidar.txt -o lidar.laz -parse xyzai -scale_scan_angle 57.3 -scale_intensity 65535
+    txt2las64 -i lidar.txt -o lidar.laz -parse xyzai -scale_scan_angle 57.3 -scale_intensity 65535
 
 also reads the 4th entry as the scan angle and multiplies it by 57.3
 (radian to angle) and the 5th entry as the intensity and multiplies
@@ -55,7 +62,7 @@ it by 65535 (converts range [0.0 .. 1.0] to range [0 .. 65535]. then
 produces a compressed LAZ file.
 
 
-    txt2las -skip 3 -i lidar.txt.gz -o lidar.las -parse txyzsa -sp83 OH_N
+    txt2las64 -skip 3 -i lidar.txt.gz -o lidar.las -parse txyzsa -sp83 OH_N
 
 converts a gzipped ASCII file and uses the 1st entry of each line
 as the gps time, the 3rd, 4th, and 5th entry as the x, y, and z
@@ -64,7 +71,7 @@ skips the first three lines of the ASCII data file and adds projection
 info for state plane ohio north with nad83. 
 
 
-    txt2las -i lidar.txt.gz -o lidar.laz -parse xyzRGB -set_scale 0.001 0.001 0.001 -set_offset 500000 4000000 0
+    txt2las64 -i lidar.txt.gz -o lidar.laz -parse xyzRGB -set_scale 0.001 0.001 0.001 -set_offset 500000 4000000 0
 
 converts a gzipped ASCII file and uses the 1st 2nd, and 3rd entry
 of each line as the x, y, and z coordinate of each point, and the
@@ -73,7 +80,7 @@ LAZ file will have a precision of 0.001 0.001 0.001 and an offset
 of 500000 4000000 0
 
 
-    txt2las -i LiDAR.txt -parse xyz0irnt -add_attribute 3 "echo width" "of returning waveform [ns]" 0.1 -o LiDAR.laz
+    txt2las64 -i LiDAR.txt -parse xyz0irnt -add_attribute 3 "echo width" "of returning waveform [ns]" 0.1 -o LiDAR.laz
 
 4590235.448 5436373.539 600.528 9.8 35 1 2 215277.271327  
 4590235.524 5436373.642 600.257 9.8 35 2 2 215277.271327  
@@ -92,7 +99,7 @@ as an unsigned short 98 and the value 5.3 will be stored as an unsigned
 short 53. 
 
 
-    txt2las -i LiDAR2.txt -parse xyz0i1rnt ^
+    txt2las64 -i LiDAR2.txt -parse xyz0i1rnt ^
            -add_attribute 3 "echo width" "of returning waveform [ns]" 0.1 ^
        -add_attribute 3 "corrected intensity" "uniform across flightlines" ^
            -o LiDAR2.laz
@@ -158,7 +165,6 @@ option. These are unsigned integers numbers so no scale value is required.
 -neighbors [n]     : set neighbors filename or wildcard [n]  
 -neighbors_lof [n] : set neighbors list of files [fnf]  
 -stored            : use in memory reader  
--unique            : remove duplicate points  
 
 ### Color
 -clamp_RGB_to_8bit                  : limit RGB values to 8 bit (otherwise: 16 bit)  
@@ -702,6 +708,7 @@ option. These are unsigned integers numbers so no scale value is required.
 -iskip [n]      : skip [n] lines at the beginning of the text input  
 -itxt           : expect input as text file  
 -lof [fnf]      : use input out of a list of files [fnf]  
+-unique         : remove duplicate files in a -lof list  
 -merged         : merge input files  
 -stdin          : pipe from stdin  
 
@@ -762,6 +769,9 @@ The other supported entries are:
   x : [x] coordinate  
   y : [y] coordinate  
   z : [z] coordinate  
+  X : unscaled raw [X] value   
+  Y : unscaled raw [Y] value  
+  Z : unscaled raw [Z] value  
   t : gps [t]ime  
   R : RGB [R]ed channel  
   G : RGB [G]reen channel  
@@ -777,7 +787,7 @@ The other supported entries are:
   g : synthetic fla[g]  
   o : [o]verlap flag of LAS 1.4 point types 6, 7, 8  
   l : scanner channe[l] of LAS 1.4 point types 6, 7, 8  
-  E : terrasolid [E]hco Encoding  
+  E : terrasolid [E]cho Encoding  
   c : [c]lassification  
   u : [u]ser data  
   p : [p]oint source ID  
@@ -787,6 +797,64 @@ The other supported entries are:
   (13) : additional attributes described as extra bytes (10 and up)  
   H : a hexadecimal string encoding the RGB color  
   J : a hexadecimal string encoding the intensity  
+ (HSV): color in HSV model [0,360|100]. Converted internally to RGB.
+ (HSL): color in HSL model [0,360|100]. Converted internally to RGB.
+ (hsv): color in HSV model [0,1]. Converted internally to RGB.
+ (hsl): color in HSL model [0,1]. Converted internally to RGB.
+
+If additionsl attributes are to be imported, this attributes has to be declared. 
+See example chapter.
+
+If the file contains a line with the column description,
+as outputted by the '-coldesc' flag in las2txt, the 
+'-parse' argument can be omitted, and it will be 
+automatically detected by inferring the format from the 
+file's own description.
+
+### column descriptions
+Possible column descriptions in the first line to generate the parse format.
+This descriptions can be generated using las2txt with -coldesc argument.
+  Column description  Resulting parse character 
+  x                   x coordinate
+  y                   y coordinate
+  z                   z coordinate
+  X                   X (unscaled raw X value)
+  Y                   Y (unscaled raw Y value)
+  Z                   Z (unscaled raw Z value)
+  gps_time            t (gps time)
+  intensity           i 
+  scan_angle          a
+  point_source_id     p
+  classification      c
+  user_data           u
+  return_number       r
+  number_of_returns   n
+  edge_of_flight_line e
+  scan_direction_flag d
+  withheld_flag       h
+  keypoint_flag       k
+  synthetic_flag      g
+  skip                s (skip this column without warning)
+  overlap_flag        o
+  scanner_channel     l
+  R                   R (RGB red)
+  G                   G (RGB green)
+  B                   B (RGB blue)
+  HSV_H               (HSV) HSV color model hue [0..360]
+  HSV_S                                     saturation [0..100]
+  HSV_V                                     value [0..100]
+  HSV_h               (hsv) HSV color model hue [0..1]
+  HSV_s                                     saturation [0..1]
+  HSV_v                                     value [0..1] 
+  HSL_H               (HSL) HSL color model hue [0..360]
+  HSL_S                                     saturation [0..100]
+  HSL_L                                     luminance [0..100] 
+  HSL_h               (hsl) HSL color model hue [0..1]
+  HSL_s                                     saturation [0..1]
+  HSL_l                                     luminance [0..1] 
+
+Other header descriptions will output a warning and the column will be skipped during import.
+
 
 ### output separator
 The '-osep [sep]' argument specifies the output format of a text(xyz or csv) output.
@@ -817,5 +885,4 @@ To get further support see our
 Check for latest updates at
 https://rapidlasso.de/category/blog/releases/
 
-If you have any suggestions please let us (support@rapidlasso.de) know.
-Jochen @rapidlasso
+If you have any suggestions please let us (info@rapidlasso.de) know.

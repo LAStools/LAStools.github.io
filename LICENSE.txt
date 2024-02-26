@@ -21,7 +21,6 @@
 
     * laszip
     * lasindex
-    * lasvalidate
     * lasliberate
     * lasinfo
     * las2las
@@ -38,6 +37,7 @@
     * demdiff
     * e572las
     * lasview
+    * lasvalidate
     * laspublish
     * lasoptimize
 
