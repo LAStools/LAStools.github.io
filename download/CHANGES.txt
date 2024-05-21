@@ -1,3 +1,7 @@
+21 Mai 2024 -- bugfix error handling
+7 Mai 2024 -- lascopy redesign: multiple match and copy options
+7 Mai 2024 -- unify exit codes; refactoring error handling
+7 Mai 2024 -- fix: lasinfo output point iterator
 19 March 2024 -- new: read z from attribute (-z_from_attribute) 
 19 March 2024 -- fix: find licensefile at bin location (linux)
 19 March 2024 -- fix: multicore bin localization (linux)
