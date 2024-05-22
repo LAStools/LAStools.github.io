@@ -1,3 +1,4 @@
+22 Mai 2024 -- fix: lasground64, lasground_new64: continue with next file on single file abort  
 21 Mai 2024 -- bugfix error handling
 7 Mai 2024 -- lascopy redesign: multiple match and copy options
 7 Mai 2024 -- unify exit codes; refactoring error handling
