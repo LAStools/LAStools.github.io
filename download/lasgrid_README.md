@@ -4,10 +4,11 @@ This tool reads LIDAR from LAS/LAZ/ASCII and grids them onto
 a raster. The most important parameter '-step n' specifies the
 n x n area that of LiDAR points that are gridded on one raster
 (or pixel). The output is either in BIL, ASC, IMG, TIF, PNG,
-JPG, XYZ, CSV, or DTM format. The tool can raster '-elevation'
-or '-intensity' of each point and can compute the '-lowest' or
-the '-highest', the '-average', or the standard deviation
-'-stddev', as well as the '-range'.
+JPG, XYZ, CSV, or DTM format. Optional it is possible to write
+a LAZ file with arguments "-olaz" or "-o file.laz". 
+The tool can raster '-elevation' or '-intensity' of each point 
+and can compute the '-lowest' or the '-highest', the '-average', 
+or the standard deviation '-stddev', as well as the '-range'.
 
 Other gridding options are '-scan_angle_abs', '-scan_angle',
 '-point_density', '-point_density_16bit', '-point_density_32bit', 

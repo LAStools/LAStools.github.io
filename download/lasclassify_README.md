@@ -106,7 +106,7 @@ lasclassify64 -i *.laz -verbose -feet -elevation_feet
 -olay                         : write or append classification changes to a LASlayers *.lay file  
 -olaydir [dir]                : write the output *.lay file in directory [dir]  
 -planar [n]                   : grid cell points up to standard deviation of [n] are potential roofs (default=0.1)  
--remain_buffered              : write buffer points to output when using '-buffered 25' on-the-fly buffering  
+-remain_buffered              : write all data to the output, even if they are part of a boundary buffer  
 -rugged [n]                   : grid cell points above standard deviation [n] are potential vegetation (default=0.4)  
 -small_buildings              : don't discard overly small buildings  
 -small_trees                  : don't discard overly small trees  

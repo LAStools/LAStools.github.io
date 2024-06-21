@@ -107,7 +107,7 @@ z-orders the points from lidar.las with bucket size 2.
 -pointsource     : sort points based on their point source ID (usually the flightline number)  
 -pointsource     : use point source  
 -pointsourceid   : sort points based on their point source ID (usually the flightline number)  
--remain_buffered : write buffer points to output when using '-buffered 25' on-the-fly buffering  
+-remain_buffered : write all data to the output, even if they are part of a boundary buffer  
 -return          : sort by return number  
 -return_number   : sort by return number  
 -scanner         : sort points based on the scanner channel (point types 6 or higher only)  

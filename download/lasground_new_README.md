@@ -154,7 +154,7 @@ lasground_new64 -i *.laz -v -odir ground_classified -olaz -cores 8
 -olaydir [dir]                : write the output *.lay file in directory [dir]  
 -pertube                      : optional pertube x/y values by random value  
 -refine [n]                   : set number of refinement loops to [n]{default=40}  
--remain_buffered              : write buffer points to output when using '-buffered 25' on-the-fly buffering  
+-remain_buffered              : write all data to the output, even if they are part of a boundary buffer  
 -replace_z                    : replace z value with computed height  
 -skip_files                   : skip (instead of the default copy) files that have an insufficient number of ground points  
 -spike [n]                    : remove up and down spikes > [n] centimeter  

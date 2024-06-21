@@ -163,7 +163,7 @@ lasduplicate64 -i in.las -nil
 -olay                 : write or append classification changes to a LASlayers *.lay file  
 -olaydir [dir]        : write the output *.lay file in directory [dir]  
 -record_removed       : record all removed points into a separate file with appendix "_removed"  
--remain_buffered      : write buffer points to output when using '-buffered 25' on-the-fly buffering  
+-remain_buffered      : write all data to the output, even if they are part of a boundary buffer  
 -single_returns       : mark single returns (used for converting first.txt and last.txt ASCII files to LAS)  
 -switch_G_B           : switch green and blue value  
 -two_pass             : find duplicates in two instead of one pass over the file  

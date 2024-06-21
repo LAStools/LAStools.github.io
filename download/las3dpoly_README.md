@@ -53,7 +53,7 @@ lasdistance - modify LAS/LAZ based on distance from polygonal segments. Distance
 -flag_as_synthetic   : flag the points within distance to polyline as synthetic
 -match_all_above     : match all points above the given distance of the polyline
 -match_all_below     : match all points below the given distance of the polyline
--remain_buffered     : write buffer points to output when using '-buffered 25' on-the-fly buffering
+-remain_buffered     : write all data to the output, even if they are part of a boundary buffer
 
 ### Basics
 -h,-help        : print help output  

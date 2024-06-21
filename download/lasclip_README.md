@@ -118,8 +118,10 @@ following format:
 -olaydir [dir]                : write the output *.lay file in directory [dir]  
 -poly [fns]                   : input shape file [fns]  
 -split                        : one file each shape  
--split [n]                    : split by attribute [n]  
--split [s]                    : split by attrib with name "[s]"  
+-split [n]                    : split by attribute [n], filename by attribute value  
+-split [s]                    : split by attrib with name "[s]", filename by attribute value
+-filename_as_prefix           : extend attribute filename with input filename as prefix (64bit only)
+-filename_as_suffix           : extend attribute filename with input filename as suffix (64bit only)
 -tin                          : write output.shp TIN  
 -week_to_adjusted [n]         : converts time stamps from GPS week [n] to Adjusted Standard GPS  
 

@@ -1,3 +1,10 @@
+21 June 2024 -- NEW: lasvdatum subgrid merge
+21 June 2024 -- fix: avoid fallback to verbose if -vv and -v is used
+21 June 2024 -- fix: log las file open at very_verbose level
+21 June 2024 -- close #199: ARM64 fix; explicit signed char usage
+17 June 2024 -- NEW: support ascii codepages (umlauts) in filenames
+17 June 2024 -- resolve compiler warnings
+11 June 2024 -- fix: argument handler multi core support; pass 64bit to all multicore tools; fix 64bit executeable param
 04 June 2024 -- NEW: lasheight: -kill and -prohibit_extrapolation options
 03 June 2024 -- fix: lasclassify: z_from_attrib support
 31 Mai 2024 -- fix: lasvoxel: support ignore_xxx arguments

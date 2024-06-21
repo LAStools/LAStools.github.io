@@ -97,7 +97,7 @@ lasnoise64 -i tiles\*.laz -step 3 -isolated 3 -classify_as 31 -odir denoised -ol
 -mem [n]                      : use [n] MB of main memory (500-2000; default=1500)  
 -olay                         : write or append classification changes to a LASlayers *.lay file  
 -olaydir [dir]                : write the output *.lay file in directory [dir]  
--remain_buffered              : write buffer points to output when using '-buffered 25' on-the-fly buffering  
+-remain_buffered              : write all data to the output, even if they are part of a boundary buffer  
 -remove_noise                 : remove noise points from the file  
 -step [n]                     : use a [n]x[n]x[n] uniform grid for finding isolated points  
 -step_xy [n]                  : set the horizontal x and y spacing of the grid to [n]  
