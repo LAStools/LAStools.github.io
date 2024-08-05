@@ -60,8 +60,8 @@ within 0.5 units in source exists. Set all other z-values to 0.
 
 ## lascopy specific arguments
 
--match_gps_time         : uses gps time to match data point (default) (64bit only)  
--match_number_of_return : uses number of returns to match data point (default) (64bit only)  
+-match_gps_time       : uses gps time to match data point (default) (64bit only)  
+-match_return_number  : uses number of return to match data point (default) (64bit only)  
 -match_classification : uses classification for point matching (64bit only)  
 -match_intensity      : uses intensity for point matching (64bit only)  
 -match_point_source_id: uses point source for point matching (64bit only)  
@@ -312,6 +312,7 @@ within 0.5 units in source exists. Set all other z-values to 0.
 -faf                           : input files are flightlines. do ***NOT*** use this for tiled input  
 -faf_index [n]                 : set files are flightlines index [n]  
 -files_are_flightlines         : input files are flightlines. do ***NOT*** use this for tiled input  
+-drop_edge_of_flight_line      : drop points with "Edge of Flight Line" flag set  
 -keep_edge_of_flight_line      : keep points with "Edge of Flight Line" flag set  
 -keep_scan_direction_change    : keep points with changed scan direction flag  
 -set_edge_of_flight_line [0/1] : set "Edge of Flight Line" flag to [0/1]  

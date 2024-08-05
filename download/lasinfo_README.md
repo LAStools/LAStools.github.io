@@ -273,7 +273,8 @@ lasinfo64 -i *.laz -set_system_identifier "hello world!" -set_generating_softwar
 -repair_bb                          : repair bounding box  
 -repair_counters                    : set (in place) the counters for point number and (extended) return histograms in header  
 -report_outside                     : report attributes of each point that falls outside of LAS header bounding box  
--ro                                 : report attributes of each point that falls outside of LAS header bounding box  
+-ro                                 : report attributes of each point that falls outside of LAS header bounding box
+-scale_header [x] [y] [z]           : scale whole file by scaling the header values with factor [x] [y] [z] or [xyz] (one for all) (64bit only)   
 -set_bb [x1] [y1] [z1] [x2] [y2] [z2]: set bounding box to [x1] [y1] [z1] [x2] [y2] [z2]  
 -set_bounding_box [x1] [y1] [z1] [x2] [y2] [z2]: set bounding box to [x1] [y1] [z1] [x2] [y2] [z2]  
 -set_creation_date [day] [year]     : set creation date to [day] [year]  
@@ -525,6 +526,7 @@ lasinfo64 -i *.laz -set_system_identifier "hello world!" -set_generating_softwar
 -faf                           : input files are flightlines. do ***NOT*** use this for tiled input  
 -faf_index [n]                 : set files are flightlines index [n]  
 -files_are_flightlines         : input files are flightlines. do ***NOT*** use this for tiled input  
+-drop_edge_of_flight_line      : drop points with "Edge of Flight Line" flag set  
 -keep_edge_of_flight_line      : keep points with "Edge of Flight Line" flag set  
 -keep_scan_direction_change    : keep points with changed scan direction flag  
 -set_edge_of_flight_line [0/1] : set "Edge of Flight Line" flag to [0/1]  

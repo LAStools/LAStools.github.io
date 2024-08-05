@@ -65,7 +65,8 @@ lasdatum64 -i in.laz -epsg 25833 -seven 577.326,90.129,463.920,-5.137,-1.474,-5.
 -set_ogc_wkt_in_evlr               : same as "set_ogc_wkt" but adds it as LAS 1.4 EVLR instead. really not recommended!!!  
 -seven [1],[2],[3],[4],[5],[6],[7] : do a seven parameter transform  
 -switch_G_B                        : switch green and blue value  
--week_to_adjusted [n]              : converts time stamps from GPS week [n] to Adjusted Standard GPS  
+-week_to_adjusted [n]              : converts time stamps from GPS week [n] to Adjusted Standard GPS
+-preserve_z                        : keep original height after transformation (only transform x/y coordinates)  
 
 ### Basics
 -cpu64        : start 64 bit executable (instead of default 32 bit executable)  
@@ -282,6 +283,7 @@ lasdatum64 -i in.laz -epsg 25833 -seven 577.326,90.129,463.920,-5.137,-1.474,-5.
 -faf                           : input files are flightlines. do ***NOT*** use this for tiled input  
 -faf_index [n]                 : set files are flightlines index [n]  
 -files_are_flightlines         : input files are flightlines. do ***NOT*** use this for tiled input  
+-drop_edge_of_flight_line      : drop points with "Edge of Flight Line" flag set  
 -keep_edge_of_flight_line      : keep points with "Edge of Flight Line" flag set  
 -keep_scan_direction_change    : keep points with changed scan direction flag  
 -set_edge_of_flight_line [0/1] : set "Edge of Flight Line" flag to [0/1]  

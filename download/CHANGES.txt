@@ -1,3 +1,9 @@
+05 August 2024 -- NEW: blast tools ported to linux
+05 August 2024 -- NEW: local GUI option on 64 bit versions
+12 July 2024 -- fix: close #203: ascii file encoding fix
+10 July 2024 -- NEW: lasdatum -preserve_z argument to keep original height after transformation (only transform x/y coordinates)  
+09 July 2024 -- NEW: filter argument -drop_edge_of_flight_line
+04 July 2024 -- NEW: lasinfo -scale_header argument to do a relative scale of all header values 
 24 June 2024 -- fix: las2dem: rasterizer could hang on tiny grid steps
 21 June 2024 -- NEW: lasvdatum subgrid merge
 21 June 2024 -- fix: avoid fallback to verbose if -vv and -v is used
@@ -24,7 +30,7 @@
 18 January 2024 -- implement translate_scale_translate functions (64bit)
 15 January 2024 -- fix coldesc support las2txt, txt2las; doc update
 14 December 2023 -- hsv/hsl colormodel implementation
-8 December 2023 -- copc implementation
+8 December 2023 -- copc implementation 
 10 November 2023 -- fix: las2dem: missing pixel bug 
 04 August 2023 -- set default of VLR header "reserved" to 0 instead of 0xAABB
 31 July 2023 -- NEW: las3dpoly and lasintensity
