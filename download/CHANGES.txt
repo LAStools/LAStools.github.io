@@ -1,4 +1,4 @@
-05 August 2024 -- NEW: blast tools ported to linux
+05 August 2024 -- NEW: blast2dem ported to linux
 05 August 2024 -- NEW: local GUI option on 64 bit versions
 12 July 2024 -- fix: close #203: ascii file encoding fix
 10 July 2024 -- NEW: lasdatum -preserve_z argument to keep original height after transformation (only transform x/y coordinates)  
