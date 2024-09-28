@@ -21,6 +21,13 @@ batch mode such as:
 
 lasinfo64 -i *.laz -otxt -odir ..\reports -odix _info -cores 3
 
+In addition, the lasinfo output can be provided in JSON format. To save 
+the output to a JSON file, use either the '-ojs' option or specify an output 
+file name with the '-o' option and the '.json' extension. The '-js' option can 
+be used to output the JSON format directly.
+
+lasinfo64 -i *.laz -ojs -js -o output_file.json
+
 The tool can also be used to modify various other entries in
 the header as described below. This needs to be done with care
 as such changes can potentially corrupt the file.
@@ -50,6 +57,25 @@ listed in the GUI are:
 -set_file_creation 8 2007
 -auto_date
 -set_global_encoding 1
+
+lasinfo provides detail information about this VLR records:
+    (user_id/record_id) 
+    LASF_Projection
+       34735 (GeoTIFF GeoKeyDirectoryTag)
+       34736 (GeoTIFF GeoDoubleParamsTag)
+       34737 (GeoTIFF GeoAsciiParamsTag)
+       2111 (OGC Math Transform WKT)
+       2112 (OGC Coordinate System WKT)
+    LASF_Spec      
+       0 (Classification Lookup)
+       2 (Histogram)
+       3 (Text Area Description)
+       4 (Extra Bytes)
+       100..354 (Waveform Packet Descriptor)
+    Raster LAZ
+       7113 Raster LAZ information
+    copc
+       1 copc information
 
 ## Examples
 
@@ -226,19 +252,31 @@ without checking whether this will corrupt the file.
 CAREFUL! sets the start of waveform data packet record field of the LAS header
 to 0 without checking whether this will corrupt the file.
 
+Querying CRS representations and information, based on the input file.
+The [wkt] WKT representation, the [js] PROJJSON representation, the [str] PROJ string, 
+the [epsg] EPSG code, the [el] ellipsoid information, the [datum] datum information and 
+the [cs] coordinate system information can be queried.
+CAREFUL! If a CRS object was not created from a PROJ string, exporting it to a PROJ string will in 
+most cases lead to a loss of information. This can potentially lead to incorrect transformations. 
+The use of PROJ strings should only be used with advanced knowledge.
 
-lasinfo64 -i lidar.las  
-lasinfo64 -i lidar.las -compute_density -o lidar_info.txt  
-lasinfo64 -i *.las  
-lasinfo64 -i *.las -single -otxt  
-lasinfo64 -no_header -no_vlrs -i lidar.laz  
-lasinfo64 -nv -nc -stdout -i lidar.las  
-lasinfo64 -nv -nc -stdout -i *.laz -single | grep version  
-lasinfo64 -i *.laz -subseq 100000 100100 -histo user_data 8  
-lasinfo64 -i *.las -repair  
-lasinfo64 -i *.laz -repair_bb -set_file_creation 8 2007  
-lasinfo64 -i *.las -repair_counters -set_version 1.2  
-lasinfo64 -i *.laz -set_system_identifier "hello world!" -set_generating_software "this is a test (-:"
+    lasinfo64 -i lidar.las -proj_info wkt js str epsg el datum cs
+
+
+Further examples
+
+    lasinfo64 -i lidar.las  
+    lasinfo64 -i lidar.las -compute_density -o lidar_info.txt  
+    lasinfo64 -i *.las  
+    lasinfo64 -i *.las -single -otxt  
+    lasinfo64 -no_header -no_vlrs -i lidar.laz  
+    lasinfo64 -nv -nc -stdout -i lidar.las  
+    lasinfo64 -nv -nc -stdout -i *.laz -single | grep version  
+    lasinfo64 -i *.laz -subseq 100000 100100 -histo user_data 8  
+    lasinfo64 -i *.las -repair  
+    lasinfo64 -i *.laz -repair_bb -set_file_creation 8 2007  
+    lasinfo64 -i *.las -repair_counters -set_version 1.2  
+    lasinfo64 -i *.laz -set_system_identifier "hello world!" -set_generating_software "this is a test (-:"
 
 
 ## lasinfo specific arguments
@@ -252,6 +290,8 @@ lasinfo64 -i *.laz -set_system_identifier "hello world!" -set_generating_softwar
 -delete_empty                       : delete LAS files with zero points  
 -gps_week                           : compute the GPS week (if data is Adjusted Standard GPS time)  
 -gw                                 : compute the GPS week (if data is Adjusted Standard GPS time)  
+-histo [m] [n]                      : histogram output about [m] with step width [n]  
+-histo_avg [m] [n] [o]              : histogram output about [m] with step width [n] and average [o]  
 -nc                                 : don't parse points (only check header and VLRs)  
 -nco                                : don't check whether points fall outside of LAS header bounding box  
 -nh                                 : don't output LAS header information  
@@ -266,8 +306,11 @@ lasinfo64 -i *.laz -set_system_identifier "hello world!" -set_generating_softwar
 -nr                                 : don't output return information  
 -nv                                 : don't output VLR information  
 -nw                                 : don't output WARNINGs  
--otxt                               : output as textfile  
+-otxt                               : output as textfile 
+-ojs                                : output as json file 
+-js                                 : output in json format 
 -progress [n]                       : report progress every [n] points  
+-proj_info [wkt] [js] [str] [epsg] [el] [datum] [cs] : get CRS representations and information of the input file: [wkt] WKT, [js] PROJJSON, [str] PROJ string or [epsg] EPSG code representation and [el] ellipsoid, [datum] datum or [cs] coordinate system information.
 -rename [n]                         : renames input file 'fusa.laz' to '[n]_277750_6122250.laz'  
 -repair                             : repair both bounding box and counters  
 -repair_bb                          : repair bounding box  
@@ -329,7 +372,6 @@ lasinfo64 -i *.laz -set_system_identifier "hello world!" -set_generating_softwar
 -buffered [n]          : define read or write buffer of size [n]{default=262144}  
 -chunk_size [n]        : set chunk size [n] in number of bytes  
 -comma_not_point       : use comma instead of point as decimal separator  
--histo_avg [m] [n] [o] : histogram output about [m] with step width [n] and average [o]  
 -neighbors [n]         : set neighbors filename or wildcard [n]  
 -neighbors_lof [n]     : set neighbors list of files [fnf]  
 -stored                : use in memory reader  
@@ -898,6 +940,34 @@ Supported [sep] values:
   semicolon
   hyphen
   space
+
+### aggregate options
+This parameters can be used in "-histo" and "-histo_avg" argument as first parameter  
+    x                     : x coordinate  
+    y                     : x coordinate  
+    z                     : x coordinate  
+    X                     : X integer data value  
+    Y                     : X integer data value  
+    Z                     : X integer data value  
+    intensity  
+    classification  
+    extended_scan_angle  
+    scan_angle  
+    return_number  
+    number_of_returns  
+    user_data  
+    point_source  
+    gps_time  
+    scanner_channel  
+    R                    : RGB red value
+    G                    : RGB green value
+    B                    : RGB blue value
+    I                    : intensity
+    attribute0..9        : extra byte attribute value
+    wavepacket_index  
+    wavepacket_offset  
+    wavepacket_size  
+    wavepacket_location  
 
 ## License
 
