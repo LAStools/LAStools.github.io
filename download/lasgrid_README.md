@@ -342,7 +342,7 @@ See "grouping arguments by tokens" below to see all possible tokens to generate 
 
 
 ### other specific arguments
--color_map [fnm]           : load colormap txt file [fnm] to define class colors  
+-color_map [fnm]           : load colormap txt file [fnm] to define target colors  
 -compute_min_max           : computes the range for -gray and -false  
 -copy_attribute_into_z [n] : copy attribute [n] value into z  
 -density                   : check difference in point density per overlapping flightline per cell with an 8 bit counter  
@@ -1074,6 +1074,8 @@ If a subtoken is not present and a (default) is defined, this will be used.
 -osep [n]                : set text output separator as [sep] (see below, only xyz)  
 -otif                    : output as GeoTIFF image  
 -oxyz                    : output as xyz textfile  
+-force_tif               : force output in TIFF format, regardless of data size. Used in combination with GeoTIFF output  
+-force_bigTif            : force output in BigTIFF format, regardless of data size. Used in combination with GeoTIFF output  
 -pipe_on                 : write output to command pipe, see also -std_in  
 -populate                : populate header on output  
 -target_ecef             : output is geocentric (Earth-centered Earth-fixed)  
