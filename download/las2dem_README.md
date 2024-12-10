@@ -210,7 +210,7 @@ generated KML file:
 -spike_free                : run spike-free algorithm with defaults freeze = 1.5, interval = 0.25, buffer = 0.5  
 -spike_free [m] [n] [o]    : run spike-free algorithm with freeze = [m], interval = [n], buffer = [o]  
 -step [n]                  : raster with stepsize [n] (the default is 1 or 0.0001 on long/lat coordinates)  
--tin                       : write output.shp TIN  
+-tin                       : write output.shp TIN for lake breakline (require -lakes argument)  
 -trim_upper_right          : trim upper right corner to one quantization unit  
 -use_orig_bb               : raster tile without buffer added by on-the-fly buffering  
 -use_tile_bb               : raster tile without buffer added by lastile  
@@ -234,7 +234,7 @@ generated KML file:
 -comma_not_point   : use comma instead of point as decimal separator  
 -neighbors [n]     : set neighbors filename or wildcard [n]  
 -neighbors_lof [n] : set neighbors list of files [fnf]  
--no_data [n]       : use [n] as the nodata value in the BIL / ASC format  
+-no_data [n]       : use [n] as the nodata value in the BIL / ASC / TIF format  
 -no_data_alpha     : adds an alpha channel to the GeoTIFF output, designating areas with no data as transparent  
 -no_kml            : avoids auto-creation of KML wrapper  
 -no_world_file     : avoid world-file for PNG, JPG, TIF and BIL output  
