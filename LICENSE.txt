@@ -7,7 +7,7 @@
 
 --------------------------------------------------------------------------
 
-  There are TWO parts to LAStools. One part is OPEN source. 
+  There are TWO parts of LAStools. One part is OPEN source. 
   The other part is CLOSED source and requires licensing for most 
   commercial or government use. If you're unsure please email 
   'info@rapidlasso.de' before using LAStools.
@@ -21,15 +21,15 @@
 
     * laszip
     * lasindex
-    * lasliberate
     * lasinfo
     * las2las
     * lasdiff
     * lasmerge
     * las2txt & txt2las
     * lasprecision
-    * LASzip (with static linking exception)
+    * LASzip
     * LASlib (with LASzip) - the API used by LAStools.
+    * lascopcindex
 
   These are also "free" to use but not (yet) available in open source.
 
@@ -40,6 +40,7 @@
     * lasvalidate
     * laspublish
     * lasoptimize
+    * lasliberate
 
 --------------------------------------------------------------------------
 
@@ -55,9 +56,11 @@
     
     * las2dem
     * las2iso
-    * las2shp & shp2las
+    * las2shp
     * las2tin
+    * las3dpoly
     * lasboundary
+    * lascanopy
     * lasclassify
     * lasclip
     * lascolor
@@ -66,10 +69,12 @@
     * lasdatum & lasvdatum
     * lasdistance
     * lasduplicate
-    * lasgrid & lascanopy
+    * lasgrid
     * lasground & lasground_new
-    * lasheight & lastrack
+    * lasheight
+    * lasintensity
     * laslayers
+    * lasnoise
     * lasoverage
     * lasoverlap
     * lasplanes
@@ -77,10 +82,11 @@
     * lasreturn
     * lassort
     * lassplit
-    * lasthin & lasnoise
+    * lasthin
     * lastile
     * lastool
     * lasvoxel
+    * shp2las
 
 --------------------------------------------------------------------------
 
@@ -98,6 +104,6 @@
 
   COPYRIGHT:
   
-  (c) 2007-2021, rapidlasso GmbH, GERMANY - fast tools to catch reality
+  (c) 2007-2025, rapidlasso GmbH, GERMANY - fast tools to catch reality
 
 --------------------------------------------------------------------------
