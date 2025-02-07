@@ -18,7 +18,7 @@ stores the tile index in the square quad-tree from which its
 min/max extend can be computed. The VLR also tells LAStools
 whether a tile has buffers. Why are buffers important? See:
 
-http://rapidlasso.com/2015/08/07/use-buffers-when-processing-lidar-in-tiles/
+https://rapidlasso.de/use-buffers-when-processing-lidar-in-tiles/
 
 The tool can either operate in one or in two reading passes
 via a commandline switch ('-extra_pass'). The additional reading 
@@ -189,7 +189,6 @@ tiles the last returns from huge.laz into compressed tiling.
 ## lastile specific arguments
 
 -buffer [n]                         : increase tile by a bounding box of size [n]  
--cores [n]                          : process multiple inputs on [n] cores in parallel  
 -dont_delete_refined                : keep original tiles around tile refinement to 4 smaller tiles  
 -external_tile [x1] [y1] [x2] [y2]  : generate one external defined tile with the given bounding box  
 -external_tiling [fns] [n]          : use tile info of SHP file [fns] and DBF attribute [n]  
@@ -197,7 +196,8 @@ tiles the last returns from huge.laz into compressed tiling.
 -flag_as_synthetic                  : flag buffer points as synthetic  
 -flag_as_withheld                   : flag buffer points as withheld  
 -full_bb                            : prevent the bounding box from being shrunk to the actual extent of the points  
--kdtree                             : use tree structure for fast overlap checks  
+-kdtree                             : use tree structure for fast overlap checks
+-keep_buffer_only_tiles             : keep files, even if only contain buffer points
 -olay                               : write or append classification changes to a LASlayers *.lay file  
 -overview                           : create single overview file for multiple inputs  
 -refine                             : refine a former tiling  
@@ -213,16 +213,17 @@ tiles the last returns from huge.laz into compressed tiling.
 -unindexed                          : force processing even if input is not indexed  
 
 ### Basics
--cpu64   : start 64 bit executable (instead of default 32 bit executable)  
--fail    : fail if license expired or invalid  
--gui     : start with files loaded into GUI  
--h       : print help output  
--help    : print help output  
--license : show license information  
--v       : verbose output (print extra information)  
--version : reports this tool's version number  
--vv      : very verbose output (print even more information)  
--wait    : wait for <ENTER> in the console at end of process  
+-cores [n] : process multiple inputs on [n] cores in parallel  
+-cpu64     : start 64 bit executable (instead of default 32 bit executable)  
+-fail      : fail if license expired or invalid  
+-gui       : start with files loaded into GUI  
+-h         : print help output  
+-help      : print help output  
+-license   : show license information  
+-v         : verbose output (print extra information)  
+-version   : reports this tool's version number  
+-vv        : very verbose output (print even more information)  
+-wait      : wait for <ENTER> in the console at end of process  
 
 ## Module arguments
 
@@ -295,7 +296,7 @@ tiles the last returns from huge.laz into compressed tiling.
 ### Coordinates
 -add_attribute_to_z [n]             : add value of attribute [n] to z value  
 -add_scaled_attribute_to_z [m] [n]  : scale attribute [m] value by [n] and add to z value  
--auto_reoffset                      : puts a reasonable offset in the header and translates the points accordingly  
+-auto_reoffset                      : puts a reasonable offset in the header and translates the points accordingly. Only applicable to LAS/LAZ input files  
 -bin_Z_into_point_source [n]        : set point source to z/[n]  
 -clamp_raw_z [min] [max]            : limit raw z values to [min] and [max]  
 -clamp_z [min] [max]                : limit z values to [min] and [max]  
@@ -338,6 +339,7 @@ tiles the last returns from huge.laz into compressed tiling.
 -keep_z [m] [n]                     : keep points with z value between [m] and [n]  
 -keep_z_above [n]                   : keep points with z value above [n]  
 -keep_z_below [n]                   : keep points with z value below [n]  
+-offset_adjust                      : adjusting the offset based on the results of point operations and transformations
 -reoffset [x] [y] [z]               : puts a new offset [x] [y] [z] into the header and translates the points accordingly  
 -rescale [x] [y] [z]                : puts a new scale [x] [y] [z] into the header and rescales the points accordingly  
 -rescale_xy [x] [y]                 : rescale x y by [x] [y]  

@@ -55,7 +55,6 @@ lasdatum64 -i in.laz -epsg 25833 -seven 577.326,90.129,463.920,-5.137,-1.474,-5.
 -backward                          : convert from geoidal (or orthometric) elevations to ellipsoidal elevations  
 -cfr                               : use CFR (Coordinate Frame Rotation)  
 -CFR                               : use CFR (Coordinate Frame Rotation)  
--cores [n]                         : process multiple inputs on [n] cores in parallel  
 -grid [n]                          : use "Grid Shift Binary" (*.gsb) file [n] as datum grid  
 -ilay [n]                          : apply [n] or all LASlayers found in corresponding *.lay file on read  
 -ilaydir [n]                       : look for corresponding *.lay file in directory [n]  
@@ -69,6 +68,7 @@ lasdatum64 -i in.laz -epsg 25833 -seven 577.326,90.129,463.920,-5.137,-1.474,-5.
 -preserve_z                        : keep original height after transformation (only transform x/y coordinates)  
 
 ### Basics
+-cores [n]    : process multiple inputs on [n] cores in parallel  
 -cpu64        : start 64 bit executable (instead of default 32 bit executable)  
 -fail         : fail if license expired or invalid  
 -gui          : start with files loaded into GUI  
@@ -152,7 +152,7 @@ lasdatum64 -i in.laz -epsg 25833 -seven 577.326,90.129,463.920,-5.137,-1.474,-5.
 ### Coordinates
 -add_attribute_to_z [n]             : add value of attribute [n] to z value  
 -add_scaled_attribute_to_z [m] [n]  : scale attribute [m] value by [n] and add to z value  
--auto_reoffset                      : puts a reasonable offset in the header and translates the points accordingly  
+-auto_reoffset                      : puts a reasonable offset in the header and translates the points accordingly. Only applicable to LAS/LAZ input files  
 -bin_Z_into_point_source [n]        : set point source to z/[n]  
 -clamp_raw_z [min] [max]            : limit raw z values to [min] and [max]  
 -clamp_z [min] [max]                : limit z values to [min] and [max]  
@@ -195,6 +195,7 @@ lasdatum64 -i in.laz -epsg 25833 -seven 577.326,90.129,463.920,-5.137,-1.474,-5.
 -keep_z [m] [n]                     : keep points with z value between [m] and [n]  
 -keep_z_above [n]                   : keep points with z value above [n]  
 -keep_z_below [n]                   : keep points with z value below [n]  
+-offset_adjust                      : adjusting the offset based on the results of point operations and transformations
 -reoffset [x] [y] [z]               : puts a new offset [x] [y] [z] into the header and translates the points accordingly  
 -rescale [x] [y] [z]                : puts a new scale [x] [y] [z] into the header and rescales the points accordingly  
 -rescale_xy [x] [y]                 : rescale x y by [x] [y]  

@@ -112,7 +112,6 @@ input files then treated as individual flightlines.
 ## lasoverage specific arguments
 
 -classify_as [n]                  : set the classification of the overage points to [n]{default:12}  
--cores [n]                        : process multiple inputs on [n] cores in parallel  
 -entire_overlap                   : do the action for the entire overlap instead of the overage  
 -feet                             : use feet  
 -flag_as_overlap                  : set 'overlap flag' for overage points instead of setting classification to 12  
@@ -127,6 +126,7 @@ input files then treated as individual flightlines.
 -step [n]                         : set resolution of grid (granularity) to [n] for overage points computation (default=1)  
 
 ### Basics
+-cores [n]    : process multiple inputs on [n] cores in parallel  
 -cpu64        : start 64 bit executable (instead of default 32 bit executable)  
 -fail         : fail if license expired or invalid  
 -gui          : start with files loaded into GUI  
@@ -212,7 +212,7 @@ input files then treated as individual flightlines.
 ### Coordinates
 -add_attribute_to_z [n]             : add value of attribute [n] to z value  
 -add_scaled_attribute_to_z [m] [n]  : scale attribute [m] value by [n] and add to z value  
--auto_reoffset                      : puts a reasonable offset in the header and translates the points accordingly  
+-auto_reoffset                      : puts a reasonable offset in the header and translates the points accordingly. Only applicable to LAS/LAZ input files  
 -bin_Z_into_point_source [n]        : set point source to z/[n]  
 -clamp_raw_z [min] [max]            : limit raw z values to [min] and [max]  
 -clamp_z [min] [max]                : limit z values to [min] and [max]  
@@ -255,6 +255,7 @@ input files then treated as individual flightlines.
 -keep_z [m] [n]                     : keep points with z value between [m] and [n]  
 -keep_z_above [n]                   : keep points with z value above [n]  
 -keep_z_below [n]                   : keep points with z value below [n]  
+-offset_adjust                      : adjusting the offset based on the results of point operations and transformations
 -reoffset [x] [y] [z]               : puts a new offset [x] [y] [z] into the header and translates the points accordingly  
 -rescale [x] [y] [z]                : puts a new scale [x] [y] [z] into the header and rescales the points accordingly  
 -rescale_xy [x] [y]                 : rescale x y by [x] [y]  

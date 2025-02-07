@@ -117,7 +117,6 @@ lassplit64 -i *.las -merged -split 100000000 -digits 2
 -by_x_interval [n]                : split points based on x coordinate intervals of [n]  
 -by_y_interval [n]                : split points based on y coordinate intervals of [n]  
 -by_z_interval [n]                : split points based on z coordinate intervals of [n]  
--cores [n]                        : process multiple inputs on [n] cores in parallel  
 -digits [n]                       : use [n] digits for naming of split files (default=7)  
 -ilay [n]                         : apply [n] or all LASlayers found in corresponding *.lay file on read  
 -ilaydir [n]                      : look for corresponding *.lay file in directory [n]  
@@ -131,14 +130,15 @@ lassplit64 -i *.las -merged -split 100000000 -digits 2
 -point_source_offset [n]          : additional offset [n] only for the point_source if point_source is updated
 
 ### Basics
--fail    : fail if license expired or invalid  
--gui     : start with files loaded into GUI  
--h       : print help output  
--help    : print help output  
--license : show license information  
--v       : verbose output (print extra information)  
--verbose : verbose output (print extra information)  
--version : reports this tool's version number  
+-cores [n] : process multiple inputs on [n] cores in parallel  
+-fail      : fail if license expired or invalid  
+-gui       : start with files loaded into GUI  
+-h         : print help output  
+-help      : print help output  
+-license   : show license information  
+-v         : verbose output (print extra information)  
+-verbose   : verbose output (print extra information)  
+-version   : reports this tool's version number  
 
 ## Module arguments
 
@@ -210,7 +210,7 @@ lassplit64 -i *.las -merged -split 100000000 -digits 2
 ### Coordinates
 -add_attribute_to_z [n]             : add value of attribute [n] to z value  
 -add_scaled_attribute_to_z [m] [n]  : scale attribute [m] value by [n] and add to z value  
--auto_reoffset                      : puts a reasonable offset in the header and translates the points accordingly  
+-auto_reoffset                      : puts a reasonable offset in the header and translates the points accordingly. Only applicable to LAS/LAZ input files  
 -bin_Z_into_point_source [n]        : set point source to z/[n]  
 -clamp_raw_z [min] [max]            : limit raw z values to [min] and [max]  
 -clamp_z [min] [max]                : limit z values to [min] and [max]  
@@ -253,6 +253,7 @@ lassplit64 -i *.las -merged -split 100000000 -digits 2
 -keep_z [m] [n]                     : keep points with z value between [m] and [n]  
 -keep_z_above [n]                   : keep points with z value above [n]  
 -keep_z_below [n]                   : keep points with z value below [n]  
+-offset_adjust                      : adjusting the offset based on the results of point operations and transformations
 -reoffset [x] [y] [z]               : puts a new offset [x] [y] [z] into the header and translates the points accordingly  
 -rescale [x] [y] [z]                : puts a new scale [x] [y] [z] into the header and rescales the points accordingly  
 -rescale_xy [x] [y]                 : rescale x y by [x] [y]  

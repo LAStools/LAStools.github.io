@@ -18,8 +18,9 @@ collection of points will be accelerated significanly. For repeat
 probing running lasindex before lasprobe is recommended.
 
 The output report defaults to stdout unless you specify an output
-file with '-o report.txt'. Standard output is only the elevation
-value, unless you add '-xyz' to the command line so that the x abd
+file with '-o report.txt'. Standard output is only the z (elevation)
+value, unless you add '-xyz' to the command line so that all 
+coordinates will be written.
 
 
 ## Examples
@@ -119,7 +120,7 @@ lasprobe64 -i fusa.laz -keep_class 2 -probe 277760.00 6122260 -o probe.txt -xyz
 
 -o [n]                : use [n] as output file  
 -probe [x] [y]        : probe at pos [x] [y]  
--step [n]             : step radius in [n] meters  
+-step [n]             : step radius in [n] meters (default=5)
 -switch_G_B           : switch green and blue value  
 -week_to_adjusted [n] : converts time stamps from GPS week [n] to Adjusted Standard GPS  
 -xyz                  : output xyz value instead of only elevation value  
@@ -139,7 +140,7 @@ lasprobe64 -i fusa.laz -keep_class 2 -probe 277760.00 6122260 -o probe.txt -xyz
 ## Module arguments
 
 ### General
--buffered [n]      : define read or write buffer of size [n]{default=262144}  
+-buffered [n]      : define read or write buffer of size [n] (default=262144)
 -comma_not_point   : use comma instead of point as decimal separator  
 -neighbors [n]     : set neighbors filename or wildcard [n]  
 -neighbors_lof [n] : set neighbors list of files [fnf]  
@@ -204,7 +205,7 @@ lasprobe64 -i fusa.laz -keep_class 2 -probe 277760.00 6122260 -o probe.txt -xyz
 ### Coordinates
 -add_attribute_to_z [n]             : add value of attribute [n] to z value  
 -add_scaled_attribute_to_z [m] [n]  : scale attribute [m] value by [n] and add to z value  
--auto_reoffset                      : puts a reasonable offset in the header and translates the points accordingly  
+-auto_reoffset                      : puts a reasonable offset in the header and translates the points accordingly. Only applicable to LAS/LAZ input files  
 -bin_Z_into_point_source [n]        : set point source to z/[n]  
 -clamp_raw_z [min] [max]            : limit raw z values to [min] and [max]  
 -clamp_z [min] [max]                : limit z values to [min] and [max]  
@@ -247,6 +248,7 @@ lasprobe64 -i fusa.laz -keep_class 2 -probe 277760.00 6122260 -o probe.txt -xyz
 -keep_z [m] [n]                     : keep points with z value between [m] and [n]  
 -keep_z_above [n]                   : keep points with z value above [n]  
 -keep_z_below [n]                   : keep points with z value below [n]  
+-offset_adjust                      : adjusting the offset based on the results of point operations and transformations
 -reoffset [x] [y] [z]               : puts a new offset [x] [y] [z] into the header and translates the points accordingly  
 -rescale [x] [y] [z]                : puts a new scale [x] [y] [z] into the header and rescales the points accordingly  
 -rescale_xy [x] [y]                 : rescale x y by [x] [y]  

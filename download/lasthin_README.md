@@ -164,7 +164,6 @@ spacing of 1 unit and outputs them compressed to 'combined.laz'
 -central                      : thins, flags or classifies the point closest to the x/y center of each cell  
 -classify_as [n]              : keep all points in file (do not thin) but classify surviving points as [n] instead  
 -contours [n]                 : thins, flags, or classifies points per cell that are as far as possible from contour intervals of [n]  
--cores [n]                    : process multiple inputs on [n] cores in parallel  
 -flag_as_keypoint             : keep all points in file (do not thin) but flag surviving points as keypoint instead  
 -flag_as_withheld             : keep all points in file (do not thin) but flag surviving points as withheld instead  
 -gps_time                     : thin on GPS time instead (still in beta)  
@@ -187,6 +186,7 @@ spacing of 1 unit and outputs them compressed to 'combined.laz'
 -withheld                     : keep all points in file (do not thin) but flag surviving points as withheld instead  
 
 ### Basics
+-cores [n]    : process multiple inputs on [n] cores in parallel  
 -cpu64        : start 64 bit executable (instead of default 32 bit executable)  
 -fail         : fail if license expired or invalid  
 -gui          : start with files loaded into GUI  
@@ -271,7 +271,7 @@ spacing of 1 unit and outputs them compressed to 'combined.laz'
 ### Coordinates
 -add_attribute_to_z [n]             : add value of attribute [n] to z value  
 -add_scaled_attribute_to_z [m] [n]  : scale attribute [m] value by [n] and add to z value  
--auto_reoffset                      : puts a reasonable offset in the header and translates the points accordingly  
+-auto_reoffset                      : puts a reasonable offset in the header and translates the points accordingly. Only applicable to LAS/LAZ input files  
 -bin_Z_into_point_source [n]        : set point source to z/[n]  
 -clamp_raw_z [min] [max]            : limit raw z values to [min] and [max]  
 -clamp_z [min] [max]                : limit z values to [min] and [max]  
@@ -314,6 +314,7 @@ spacing of 1 unit and outputs them compressed to 'combined.laz'
 -keep_z [m] [n]                     : keep points with z value between [m] and [n]  
 -keep_z_above [n]                   : keep points with z value above [n]  
 -keep_z_below [n]                   : keep points with z value below [n]  
+-offset_adjust                      : adjusting the offset based on the results of point operations and transformations
 -reoffset [x] [y] [z]               : puts a new offset [x] [y] [z] into the header and translates the points accordingly  
 -rescale [x] [y] [z]                : puts a new scale [x] [y] [z] into the header and rescales the points accordingly  
 -rescale_xy [x] [y]                 : rescale x y by [x] [y]  

@@ -68,7 +68,6 @@ lasindex64 -i lidar.las -tile_size 2 -maximum -50
 ## lasindex specific arguments
 
 -append               : append LAX index to LAZ file (not possible for LAS)  
--cores [n]            : process multiple inputs on [n] cores in parallel  
 -dont_reindex         : skip LAS or LAZ that already have an index  
 -maximum [n]          : maximum number of intervals [n] per spatial area  
 -meta                 : create a meta index above multiple files  
@@ -80,6 +79,7 @@ lasindex64 -i lidar.las -tile_size 2 -maximum -50
 -week_to_adjusted [n] : converts time stamps from GPS week [n] to Adjusted Standard GPS  
 
 ### Basics
+-cores [n]    : process multiple inputs on [n] cores in parallel  
 -cpu64        : start 64 bit executable (instead of default 32 bit executable)  
 -fail         : fail if license expired or invalid  
 -gui          : start with files loaded into GUI  
@@ -160,7 +160,7 @@ lasindex64 -i lidar.las -tile_size 2 -maximum -50
 ### Coordinates
 -add_attribute_to_z [n]             : add value of attribute [n] to z value  
 -add_scaled_attribute_to_z [m] [n]  : scale attribute [m] value by [n] and add to z value  
--auto_reoffset                      : puts a reasonable offset in the header and translates the points accordingly  
+-auto_reoffset                      : puts a reasonable offset in the header and translates the points accordingly. Only applicable to LAS/LAZ input files  
 -bin_Z_into_point_source [n]        : set point source to z/[n]  
 -clamp_raw_z [min] [max]            : limit raw z values to [min] and [max]  
 -clamp_z [min] [max]                : limit z values to [min] and [max]  
@@ -203,6 +203,7 @@ lasindex64 -i lidar.las -tile_size 2 -maximum -50
 -keep_z [m] [n]                     : keep points with z value between [m] and [n]  
 -keep_z_above [n]                   : keep points with z value above [n]  
 -keep_z_below [n]                   : keep points with z value below [n]  
+-offset_adjust                      : adjusting the offset based on the results of point operations and transformations
 -reoffset [x] [y] [z]               : puts a new offset [x] [y] [z] into the header and translates the points accordingly  
 -rescale [x] [y] [z]                : puts a new scale [x] [y] [z] into the header and rescales the points accordingly  
 -rescale_xy [x] [y]                 : rescale x y by [x] [y]  

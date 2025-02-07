@@ -29,6 +29,14 @@ lasoptimize that either '-scanner_channel_in_point_source_ID' or
 that '-scanner_channel_in_user_data' as compression will suffer
 biggly when beam switches are ignored.
 
+## Offset
+The following options are available for automatically setting a sensible offset of the point coordinates to avoid overflows:
+
+-auto_reoffset: This option sets an appropriate offset in the header and translates the points accordingly. 
+This option is only considered for LAS/LAZ input files and is recommended as long as no point coordinate operation or transformation is performed.
+
+-offset_adjust: This option sets the offset based on the selected point coordinate operations and transformations. 
+It is recommended to be used for such operations and transformations and is applicable to all supported input file formats.
 
 ## Examples
 
@@ -55,7 +63,6 @@ of each point.
 
 -append                             : append LAX index to existing file  
 -average [n]                        : requested average point per cells value of [n] (default=20000)  
--cores [n]                          : process multiple inputs on [n] cores in parallel  
 -do_not_create_lax                  : do not create index file  
 -do_not_eliminate_fluff             : do not eliminate point coordinate value fluff  
 -do_not_move_EVLRs                  : do not move EVLRs  
@@ -71,17 +78,18 @@ of each point.
 -week_to_adjusted [n]               : converts time stamps from GPS week [n] to Adjusted Standard GPS  
 
 ### Basics
--cpu64   : start 64 bit executable (instead of default 32 bit executable)  
--fail    : fail if license expired or invalid  
--gui     : start with files loaded into GUI  
--h       : print help output  
--help    : print help output  
--license : show license information  
--quiet   : nothing reported in console  
--v       : verbose output (print extra information)  
--verbose : verbose output (print extra information)  
--version : reports this tool's version number  
--vv      : very verbose output (print even more information)  
+-cores [n]: process multiple inputs on [n] cores in parallel  
+-cpu64    : start 64 bit executable (instead of default 32 bit executable)  
+-fail     : fail if license expired or invalid  
+-gui      : start with files loaded into GUI  
+-h        : print help output  
+-help     : print help output  
+-license  : show license information  
+-quiet    : nothing reported in console  
+-v        : verbose output (print extra information)  
+-verbose  : verbose output (print extra information)  
+-version  : reports this tool's version number  
+-vv       : very verbose output (print even more information)  
 
 ## Module arguments
 
@@ -153,7 +161,7 @@ of each point.
 ### Coordinates
 -add_attribute_to_z [n]             : add value of attribute [n] to z value  
 -add_scaled_attribute_to_z [m] [n]  : scale attribute [m] value by [n] and add to z value  
--auto_reoffset                      : puts a reasonable offset in the header and translates the points accordingly  
+-auto_reoffset                      : puts a reasonable offset in the header and translates the points accordingly. Only applicable to LAS/LAZ input files  
 -bin_Z_into_point_source [n]        : set point source to z/[n]  
 -clamp_raw_z [min] [max]            : limit raw z values to [min] and [max]  
 -clamp_z [min] [max]                : limit z values to [min] and [max]  
@@ -196,6 +204,7 @@ of each point.
 -keep_z [m] [n]                     : keep points with z value between [m] and [n]  
 -keep_z_above [n]                   : keep points with z value above [n]  
 -keep_z_below [n]                   : keep points with z value below [n]  
+-offset_adjust                      : adjusting the offset based on the results of point operations and transformations
 -reoffset [x] [y] [z]               : puts a new offset [x] [y] [z] into the header and translates the points accordingly  
 -rescale [x] [y] [z]                : puts a new scale [x] [y] [z] into the header and rescales the points accordingly  
 -rescale_xy [x] [y]                 : rescale x y by [x] [y]  

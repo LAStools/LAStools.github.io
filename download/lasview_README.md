@@ -170,7 +170,6 @@ reads around 10 million subsampled lidar points and displays in 11 steps
 -color_by_user_data                 : render points by mapping the 8-bit user data field to a color ramp (blue-]green-]red)  
 -concavity [n]                      : remove large exterior triangles from TIN who have an edge longer [n]{default=50}  
 -cones [m] [n]                      : define structural elements as cones of radius [m] and height [n]  
--cores [n]                          : process multiple inputs on [n] cores in parallel  
 -cp [fnt]                           : load control points with parse string xyz from file [fnt] and visualize each as red sphere with radius 1 meter  
 -cp_parse [xyz]                     : use parse string [xyz] to parse control point file  
 -every [n]                          : visualize incremental loading of points every [n] points  
@@ -228,14 +227,15 @@ reads around 10 million subsampled lidar points and displays in 11 steps
 -win [m] [n]                        : start with render window size of [m] by [n] pixels  
 
 ### Basics
--fail    : fail if license expired or invalid  
--gui     : start with files loaded into GUI  
--h       : print help output  
--help    : print help output  
--license : show license information  
--v       : verbose output (print extra information)  
--verbose : verbose output (print extra information)  
--version : reports this tool's version number..
+-cores [n] : process multiple inputs on [n] cores in parallel  
+-fail      : fail if license expired or invalid  
+-gui       : start with files loaded into GUI  
+-h         : print help output  
+-help      : print help output  
+-license   : show license information  
+-v         : verbose output (print extra information)  
+-verbose   : verbose output (print extra information)  
+-version   : reports this tool's version number..
 
 ## Module arguments
 
@@ -305,7 +305,7 @@ reads around 10 million subsampled lidar points and displays in 11 steps
 ### Coordinates
 -add_attribute_to_z [n]             : add value of attribute [n] to z value  
 -add_scaled_attribute_to_z [m] [n]  : scale attribute [m] value by [n] and add to z value  
--auto_reoffset                      : puts a reasonable offset in the header and translates the points accordingly  
+-auto_reoffset                      : puts a reasonable offset in the header and translates the points accordingly. Only applicable to LAS/LAZ input files  
 -bin_Z_into_point_source [n]        : set point source to z/[n]  
 -clamp_raw_z [min] [max]            : limit raw z values to [min] and [max]  
 -clamp_z [min] [max]                : limit z values to [min] and [max]  
@@ -348,6 +348,7 @@ reads around 10 million subsampled lidar points and displays in 11 steps
 -keep_z [m] [n]                     : keep points with z value between [m] and [n]  
 -keep_z_above [n]                   : keep points with z value above [n]  
 -keep_z_below [n]                   : keep points with z value below [n]  
+-offset_adjust                      : adjusting the offset based on the results of point operations and transformations
 -reoffset [x] [y] [z]               : puts a new offset [x] [y] [z] into the header and translates the points accordingly  
 -rescale [x] [y] [z]                : puts a new scale [x] [y] [z] into the header and rescales the points accordingly  
 -rescale_xy [x] [y]                 : rescale x y by [x] [y]  
