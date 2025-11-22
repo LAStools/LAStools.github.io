@@ -72,8 +72,8 @@ within 0.5 units in source exists. Set all other z-values to 0.
 -match_edge_of_flightline: uses edge of flightline flag for point matching  
 -match_scan_direction    : uses scan direction flag for point matching  
 -match_user_data         : uses user data for point matching  
--match_xy [dist]         : Match points by x-y coordinates and the specified maximum distance  
--match_xyz [dist]        : Match points by x-y-z coordinates and the specified maximum distance  
+-match_xy [d]            : Match points by x-y coordinates and the specified maximum distance [d] 
+-match_xyz [dx] <[y] [z]> : Match points by x-y-z coordinates and a spherical distance [dx] or a bounding box [dx] [y] [z]. 
 
 ### copy operations
 -copy_attribute [n]   : copy attribute with index [n]. Attribute must exist in source and target with matching data type  
@@ -125,7 +125,6 @@ within 0.5 units in source exists. Set all other z-values to 0.
 ## Module arguments
 
 ### General
--buffered [n]      : define read or write buffer of size [n]{default=262144}  
 -chunk_size [n]    : set chunk size [n] in number of bytes  
 -comma_not_point   : use comma instead of point as decimal separator  
 -neighbors [n]     : set neighbors filename or wildcard [n]  
@@ -700,6 +699,7 @@ within 0.5 units in source exists. Set all other z-values to 0.
 -lof [fnf]      : use input out of a list of files [fnf]  
 -unique         : remove duplicate files in a -lof list  
 -merged         : merge input files  
+-buffered [n]   : use on-the-fly buffering of size [n] for tiles without implicit buffer  
 -stdin          : pipe from stdin  
 
 ### Output

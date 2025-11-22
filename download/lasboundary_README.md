@@ -120,6 +120,7 @@ lasboundary64 -i lidar.las -keep_class 6 -convavity 1.5 -o building_footprints.s
 -disjoint             : allow polygon to fragment for point clusters farther than concavity apart  
 -disjoint_hull        : allow polygon to fragment for point clusters farther than concavity apart  
 -extra_pass           : do extra read pass to count points (only makes sense when filtering)  
+-gdal                 : Uses the GDAL library to support additional vector formats such as GML, GPKG, GeoJSON and GPX as poly output. Can also be used for SHP and KML
 -holes                : find internal holes and output hole polygoons  
 -ilay [n]             : apply [n] or all LASlayers found in corresponding *.lay file on read  
 -ilaydir [n]          : look for corresponding *.lay file in directory [n]  
@@ -156,7 +157,6 @@ lasboundary64 -i lidar.las -keep_class 6 -convavity 1.5 -o building_footprints.s
 ## Module arguments
 
 ### General
--buffered [n]             : define read or write buffer of size [n]{default=262144}  
 -comma_not_point          : use comma instead of point as decimal separator  
 -kml_absolute             : set kml elevation to absolute values  
 -kml_elevation_offset [n] : add an elevation offset of [n]  
@@ -718,6 +718,7 @@ lasboundary64 -i lidar.las -keep_class 6 -convavity 1.5 -o building_footprints.s
 -lof [fnf]      : use input out of a list of files [fnf]  
 -unique         : remove duplicate files in a -lof list  
 -merged         : merge input files  
+-buffered [n]   : use on-the-fly buffering of size [n] for tiles without implicit buffer  
 -stdin          : pipe from stdin  
 
 ### Output
@@ -732,6 +733,10 @@ lasboundary64 -i lidar.las -keep_class 6 -convavity 1.5 -o building_footprints.s
 -oshp            : output as SHP *.shp file  
 -otxt            : output as textfile  
 -owkt            : output as wkt (well-known-text)  
+-ogpkg           : output as GPKG (GeoPackage) 
+-ogml            : output as GML (Geography Markup Language)
+-ogpx            : output as GPX (GPS Exchange Format)
+-ogeojson        : output as GeoJSON  
 -pipe_on         : write output to command pipe, see also -std_in  
 -populate        : populate header on output  
 -stdout          : pipe to stdout  

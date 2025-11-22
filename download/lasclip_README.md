@@ -59,6 +59,15 @@ The values there means
 clips all the LAS files matching "*.las" against the polygon(s) in 
 "polygon.shp" and stores each result to a LAS file called "*_1.las".
 
+    lasclip64 -i TO_core_last_zoom.laz -poly polygon.gpkg -gdal -v
+
+clips the LAZ files against the polygon(s) in "polygon.gpkg". With the -gdal argument, input formats 
+such as GPKG, GML, GeoJSON, KML, GPX, and SHP are supported.
+Please note that GPKG, SHP, and GML are recommended for maximum precision, as KML, GPX, and GeoJSON 
+require transformation to geographic coordinates (EPSG:4326) during processing, which may introduce 
+very minor positional differences along polygon boundaries. Only single-layer poly input files are 
+supported. For multi-layer inputs, only the first layer is processed. For GPX files, only routes or 
+tracks layers are supported.
 
     lasclip64 -i *.txt -iparse xyzt -poly polygon.shp -otxt -oparse xyzt
 
@@ -116,6 +125,7 @@ following format:
 -donut                        : clip only lakes but no islands  
 -donuts                       : clip only lakes but no islands  
 -flag_as_withheld             : just flag the point as withheld instead of removing it  
+-gdal                         : Uses the GDAL library to support additional vector formats such as GML, GPKG, GeoJSON, GPX and KML as -poly input file. Can also be used for SHP
 -ignore_class [m] [n] [o] ... : ignores points with classification codes [m] [n] [o] ...  
 -ilay [n]                     : apply [n] or all LASlayers found in corresponding *.lay file on read  
 -ilaydir [n]                  : look for corresponding *.lay file in directory [n]  
@@ -153,7 +163,6 @@ following format:
 ## Module arguments
 
 ### General
--buffered [n]      : define read or write buffer of size [n]{default=262144}  
 -chunk_size [n]    : set chunk size [n] in number of bytes  
 -comma_not_point   : use comma instead of point as decimal separator  
 -neighbors [n]     : set neighbors filename or wildcard [n]  
@@ -728,6 +737,7 @@ following format:
 -lof [fnf]      : use input out of a list of files [fnf]  
 -unique         : remove duplicate files in a -lof list  
 -merged         : merge input files  
+-buffered [n]   : use on-the-fly buffering of size [n] for tiles without implicit buffer  
 -stdin          : pipe from stdin  
 
 ### Output

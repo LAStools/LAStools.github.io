@@ -99,7 +99,6 @@ assumption that all points are in UTM zone 17T.
 ## Module arguments
 
 ### General
--buffered [n]             : define read or write buffer of size [n]{default=262144}  
 -comma_not_point          : use comma instead of point as decimal separator  
 -kml_absolute             : set kml elevation to absolute values  
 -kml_elevation_offset [n] : add an elevation offset of [n]  
@@ -662,6 +661,7 @@ assumption that all points are in UTM zone 17T.
 -lof [fnf]      : use input out of a list of files [fnf]  
 -unique         : remove duplicate files in a -lof list  
 -merged         : merge input files  
+-buffered [n]   : use on-the-fly buffering of size [n] for tiles without implicit buffer  
 -stdin          : pipe from stdin  
 
 ### Output

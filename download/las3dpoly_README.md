@@ -26,6 +26,15 @@ to the line specified by line.shp and list a verbose report of what has been don
 
 clip away all points of in.laz which are less than 10 units vertically and 20 units horizontal from the line specified by line.csv
 
+   las3dpoly64 -i in.laz -poly line.gpkg -distance 10 20 -o out.laz -gdal -remove_points 
+
+clips away all points of in.laz which are less than 10 units vertically and 20 units horizontal from the line specifie "line.gpkg". 
+With the -gdal argument, input formats such as GPKG, GML, GeoJSON, KML, GPX, and SHP are supported.
+Please note that GPKG, SHP, and GML are recommended for maximum precision, as KML, GPX, and GeoJSON require transformation to 
+geographic coordinates (EPSG:4326) during processing, which may introduce very minor positional differences along 
+polygon boundaries. Only single-layer poly input files are supported. For multi-layer inputs, only the first layer is processed. 
+For GPX files, only routes or tracks layers are supported.
+
 
 line.csv may look like
 
@@ -45,6 +54,7 @@ lasdistance - modify LAS/LAZ based on distance from polygonal segments. Distance
 -poly [fns]          : input shape file [fns]  
 -sep                 : separator in a csv file to separate values. see table below. default [space]
 -distance [d]        : radial distance [d] or horizontal [d1] and vertical [d2] distance. default [4]
+-gdal                : Uses the GDAL library to support additional vector formats such as GML, GPKG, GeoJSON, GPX and KML as -poly input file. Can also be used for SHP
 -remove_points       : remove points within distance to polyline
 -classify [n]        : classify points within distance to polyline as [n]  
 -classify_as [n]     : classify points within distance to polyline as [n]  
@@ -53,7 +63,7 @@ lasdistance - modify LAS/LAZ based on distance from polygonal segments. Distance
 -flag_as_synthetic   : flag the points within distance to polyline as synthetic
 -match_all_above     : match all points above the given distance of the polyline
 -match_all_below     : match all points below the given distance of the polyline
--remain_buffered     : write all data to the output, even if they are part of a boundary buffer
+-remain_buffered     : write on-the-fly buffer to the output
 
 ### Basics
 -cores [n]      : process multiple inputs on [n] cores in parallel  
@@ -76,7 +86,6 @@ lasdistance - modify LAS/LAZ based on distance from polygonal segments. Distance
 ## Module arguments
 
 ### General
--buffered [n]      : define read or write buffer of size [n]{default=262144}  
 -chunk_size [n]    : set chunk size [n] in number of bytes  
 -comma_not_point   : use comma instead of point as decimal separator  
 -neighbors [n]     : set neighbors filename or wildcard [n]  
@@ -651,6 +660,7 @@ lasdistance - modify LAS/LAZ based on distance from polygonal segments. Distance
 -lof [fnf]      : use input out of a list of files [fnf]  
 -unique         : remove duplicate files in a -lof list  
 -merged         : merge input files  
+-buffered [n]   : use on-the-fly buffering of size [n] for tiles without implicit buffer  
 -stdin          : pipe from stdin  
 
 ### Output
