@@ -1,5 +1,11 @@
 ﻿Note: Unless explicitly stated otherwise, all changes affect only the 64-bit versions
 
+12 January 2026 -- NEW: blast2iso with 64bit for windows and linux
+12 January 2026 -- fix: las2dem_new: improve performance
+12 January 2026 -- fix: improve PROJ integration
+12 January 2026 -- fix: eliminate compiler warnings
+12 January 2026 -- fix: use std::filesystem for rename and delete instead of system()
+23 December 2025 -- NEW: las2dem_new: las2dem redesign for spikefree speed
 12 December 2025 -- NEW: LAStools support for LAS 1.5 files and transformations
 12 December 2025 -- fix: lasinfo: formatted string output to JSON
 12 December 2025 -- fix: laszip: report -check failures as warning, not just info
