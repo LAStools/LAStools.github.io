@@ -1,6 +1,11 @@
 ﻿# las2dem
 
-This tool reads LIDAR points from the LAS/LAZ format (or some
+Rasters LiDAR (via a temporary TIN) to hillshade, slope,
+elevation, RGB or false color grid.
+Please also have a look at las2dem_new, which is a complete
+redesign and offers significant advantages in terms of speed.
+
+las2dem reads LIDAR points from the LAS/LAZ format (or some
 ASCII format), triangulates them temporarily into a TIN, and
 then rasters the TIN onto a DEM. The tool can either rather
 the '-elevation' (default), the '-slope', the '-intensity', the 
@@ -18,7 +23,7 @@ particular range of values to be color mapped can be clamped
 using '-set_min_max 10 100' or can be set '-compute_min_max'.
 The color ramps can be inverted with '-invert_ramp'.
 
-An interesting new option rasterizes the length of the longest
+An interesting option rasterizes the length of the longest
 or shortest edge around every vertex, which is useful for point
 spacing analysis across the surveyed area. Use '-edge_longest'
 or '-edge_shortest' to enable these options.
