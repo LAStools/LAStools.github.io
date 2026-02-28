@@ -1,5 +1,7 @@
 ﻿Note: Unless explicitly stated otherwise, all changes affect only the 64-bit versions
 
+28 February 2026 -- NEW: las2las, txt2las: allow single char headers on input files equal to parse arguments
+24 February 2026 -- fix: reset point counter on lastile extra_pass
 28 January 2026 -- fix: multicore support for raster output options (-osep,-oforce,-force_tif,-force_bigTif)
 12 January 2026 -- NEW: blast2iso with 64bit for windows and linux
 12 January 2026 -- fix: las2dem_new: improve performance
