@@ -982,7 +982,7 @@ The other supported entries are:
   M : point index, starting at 1
   W : all wavepacket attributes
   w : [w]avepacket descriptor index
-  c : [c]lassification. If extended classes are used: Use o,l or I to force 1.4 format.. If extended classes are used: Use o,l or I to force 1.4 format.
+  c : [c]lassification. If extended classes are used: Use [o],[l] or [I] to force 1.4 format  
   u : [u]ser data  
   p : [p]oint source ID  
   e : [e]dge of flight line flag  

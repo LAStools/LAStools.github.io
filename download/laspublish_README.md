@@ -1,50 +1,86 @@
 ﻿# laspublish
 
-Creates a LiDAR portal for 3D visualization (and optionally also
-for downloading) of LAS and LAZ files in any modern Web browser
-using the [WebGL Potree](https://potree.github.io) from Markus Schuetz.
-The potree converter has to be downloaded individualy from the link above.
-The installation has to be placed at "\serf\potree" within the LAStools installation.
-Please see 
-    https://rapidlasso.de/potree-puts-big-and-beautiful-lidar-in-your-browser/
-for some details and examples.
+Creates a LiDAR portal for 3D visualization (and optionally also for 
+downloading) of LAS and LAZ files in any modern Web browser 
+using [potree](https://potree.github.io) from Markus Schuetz.
+
+laspublish uses PotreeConverter to convert LAS/LAZ files into the potree data structure.
+The PotreeConverter has to be downloaded from  
+    https://github.com/potree/PotreeConverter
+and placed into the directroy  
+    "\serf\potree18" (or "\serf\potree16" for potree 1.6 installations) 
+within the LAStools installation.
+
+2 recent versions of potree are supported: 
+    potree 1.6 (latest version in 2018) 
+    potree 1.8 (since then) 
+It is recommended to use the latest version of potree for maximum performance. 
+
+After installation the directory structure within LAStools looks somehow like this:
+    .\lastools\bin\serf\potree18  
+    .\lastools\bin\serf\potree18\resources  
+    .\lastools\bin\serf\potree18\licenses  
+
+Please see  
+    https://rapidlasso.de/potree-puts-big-and-beautiful-lidar-in-your-browser/  
+for some details and examples.  
 
 
-## Examples
+# Examples
 
-    laspublish -i lidar.laz -odir portal_dir -o portal.html -olaz
+## potree 1.8
+PotreeConverter for potree 1.8 copies all default attributes. No color informations need  
+to be given. Wildcard file inputs are not supported right now.  
+It is able to process file by file, also into a common target, or to merge the files  
+before processing using lasmerge64.  
 
-creates a directory called "./portal_dir" containing an HTML file
-called "portal.html" that allows exploring the LiDAR points from
-the file "lidar.laz" once the directory is moved into Web space.
+    laspublish64 -i lidar.laz -odir portal_dir -o portal.html  
+
+a universal call to convert lidar.laz into a potree output.  
 
 
-    laspublish -i tiles_final/*.laz -odir portal_dir -o portal.html -olaz
+    lasmerge64 -i source\*.laz -o temp\tmp_publish.laz  
+    laspublish64 -i temp\tmp_publish.laz -odir c:\web\publish -o portal.html ^  
+       -move_source_files -really_move -title "LAStools" -rgb  
+    
+merge all lidar files within the current directory into a single file,  
+copy and convert this file to a potree output.  
 
-same as above for an entire folder of input files.
+## potree 1.6
+
+    laspublish64 -i lidar.laz -odir portal_dir -o portal.html -olaz  
+
+creates a directory called "./portal_dir" containing an HTML file  
+called "portal.html" that allows exploring the LiDAR points from  
+the file "lidar.laz" once the directory is moved into Web space.  
 
 
-    laspublish -i tiles_final/*.laz -copy_source_files -odir portal_dir -o portal.html -olaz
+    laspublish64 -i tiles_final/*.laz -odir portal_dir -o portal.html -olaz  
 
-same as above but also copies the original LAZ files into the portal
-subdirectory ./portal_dir/pointclouds/portal/source where they need
+same as above for an entire folder of input files.  
+
+
+    laspublish64 -i tiles_final/*.laz -copy_source_files -odir portal_dir -o portal.html -olaz  
+
+same as above but also copies the original LAZ files into the portal 
+subdirectory ./portal_dir/pointclouds/portal/source where they need 
 to reside in order for the download map to link to them properly 
 
 
-    laspublish -i tiles_final/*.laz -only_3D -odir portal_dir -o portal.html -olaz
+    laspublish64 -i tiles_final/*.laz -only_3D -odir portal_dir -o portal.html -olaz
 
-same as above but only the 3D online viewer (without the map)
-
-
-    laspublish -i tiles_final/*.laz -only_2D -odir portal_dir -o portal.html -olaz
-
-same as above but only the 2D map
+same as above but only the 3D online viewer (without the map) 
 
 
-    laspublish -i tiles_final/*.laz -only_2D -copy_source_files -odir portal_dir -o portal.html -olaz
+    laspublish64 -i tiles_final/*.laz -only_2D -odir portal_dir -o portal.html -olaz
 
-same as above but also copies the original LAZ files into the portal
-subdirectory ./portal_dir/pointclouds/portal/source where they need
+same as above but only the 2D map 
+
+
+    laspublish64 -i tiles_final/*.laz -only_2D -copy_source_files -odir portal_dir -o portal.html -olaz
+
+same as above but also copies the original LAZ files into the portal 
+subdirectory ./portal_dir/pointclouds/portal/source where they need 
 to reside in order for the download map to link to them properly 
 
 
@@ -52,42 +88,41 @@ Instead of using '-copy_source_files' or '-move_source_files' it is
 also possible to copy or move the LAZ files manually to the correct
 subfolder in the portal. For this example command line here
 
-    laspublish -i tiles/*.laz -odir aaaaa -o bbbbb.html -olaz
+    laspublish64 -i tiles/*.laz -odir aaaaa -o bbbbb.html -olaz  
 
-this subfolder needs to be located in this exact location
+this subfolder needs to be located in this exact location 
 
-./aaaaa/pointclouds/bbbbb/source
+./aaaaa/pointclouds/bbbbb/source  
 
-so that all links from the download map will correctly link to the
+so that all links from the download map will correctly link to the 
 original LAZ files.
 
 
-## laspublish specific arguments
+# laspublish specific arguments
 
--classification    : use classification value as output color parameter  
+-name [n]          : use [n] as output title (--title)  
+-title [n]         : use [n] as output title (--title)  
+-description [n]   : use [n] as output description (--description)  
 -copy_source_files : copy sourcefiles (LAS/LAZ) into portal subdirectory  
--description [n]   : use [n] as output description  
--elevation         : use elevation value as output color parameter  
--intensity         : use intensity value as output color parameter  
 -move_source_files : move sourcefiles (LAS/LAZ) into portal subdirectory (need also "-really_move" argument)  
--name [n]          : use [n] as output name  
+-really_move       : confirmation to really move the files told by "-move_source_files" argument  
+-overwrite         : overwrite existing target files  
+-potree16          : expected protree version 16 (default)  
+-potree18          : expected protree version 18  
+
+## potree 1.6 only
 -no_edl            : do not use EDL (Eye dome lighting) at 3D output  
 -no_skybox         : do not add sky at 3D output  
 -only_2D           : only output xy  
--only_2d           : use only 2 dimensions (xy)  
 -only_3D           : output only 3D  
--overwrite         : overwrite existing target files  
--point_source      : use "point source" value as output color parameter  
--potree14          : deprecated: potree 14 not supported anymore. will use potree 16  
--potree16          : expected protree version 16  
--potree18          : expected protree version 18  
--really_move       : confirmation to really move the files told by "-move_source_files" argument  
--return_number     : use "return number" value as output color parameter  
--rgb               : use rgb value as output color parameter  
--title [n]         : use [n] as output title  
+-classification    : use classification value as color parameter  
+-elevation         : use elevation value as color parameter  
+-intensity         : use intensity value as color parameter  
+-point_source      : use "point source" value as color parameter  
+-return_number     : use "return number" value as color parameter  
+-rgb               : use point color (rgb value) as color parameter  
 
-### Basics
--cores [n]      : process multiple inputs on [n] cores in parallel  
+## Basics
 -h, -help       : print help output  
 -v, -verbose    : verbose output (print extra information)  
 -vv             : very verbose output (print even more information)  
@@ -101,16 +136,16 @@ original LAZ files.
 -version        : reports this tool's version number  
 
 
-## Module arguments
+# Module arguments
 
-### General
+## General
 -chunk_size [n] : set chunk size [n] in number of bytes    
 -comma_not_point   : use comma instead of point as decimal separator  
 -neighbors [n]     : set neighbors filename or wildcard [n]  
 -neighbors_lof [n] : set neighbors list of files [fnf]  
 -stored            : use in memory reader  
 
-### Color
+## Color
 -clamp_RGB_to_8bit                  : limit RGB values to 8 bit (otherwise: 16 bit)  
 -copy_B_into_NIR                    : copy blue color value into NearInfraRed value  
 -copy_B_into_intensity              : copy blue color value to intensity  
@@ -170,7 +205,7 @@ original LAZ files.
 -switch_R_B                         : switch red and blue color value  
 -switch_R_G                         : switch red and green color value  
 
-### Coordinates
+## Coordinates
 -add_attribute_to_z [n]             : add value of attribute [n] to z value  
 -add_scaled_attribute_to_z [m] [n]  : scale attribute [m] value by [n] and add to z value  
 -auto_reoffset                      : puts a reasonable offset in the header and translates the points accordingly. Only applicable to LAS/LAZ input files  
@@ -250,7 +285,7 @@ original LAZ files.
 -translate_y [n]                    : translate y value by [n]  
 -translate_z [n]                    : translate z value by [n]  
 
-### Simple thinning
+## Simple thinning
 -drop_every_nth [n]           : drop every [n]th point  
 -keep_every_nth [n]           : keep every [n]th point  
 -keep_random_fraction [m] [n] : keep points by random fraction [m]{0-1}, optional seed [n]  
@@ -259,7 +294,7 @@ original LAZ files.
 -thin_with_grid [n]           : thin points by min grid size of [n]  
 -thin_with_time [n]           : thin pulses with time, [n] = timespacing  
 
-### Return number
+## Return number
 -change_extended_number_of_returns_from_to [m] [n]: change extended number of returns from [m] to [n]  
 -change_extended_return_number_from_to [m] [n]: change extended return number from [m] to [n]  
 -change_number_of_returns_from_to [m] [n]: change number of returns from [m] to [n]  
@@ -300,7 +335,7 @@ original LAZ files.
 -set_number_of_returns [n]          : set number of returns to [n]  
 -set_return_number [n]              : set return number to [n]  
 
-### Scanline
+## Scanline
 -drop_scan_direction [n]       : drop points with scan direction [n]  
 -faf                           : input files are flightlines. do ***NOT*** use this for tiled input  
 -faf_index [n]                 : set files are flightlines index [n]  
@@ -311,7 +346,7 @@ original LAZ files.
 -set_edge_of_flight_line [0/1] : set "Edge of Flight Line" flag to [0/1]  
 -set_scan_direction_flag [0/1] : set scan direction flag to [0/1]  
 
-### Scanner channel
+## Scanner channel
 -copy_scanner_channel_into_point_source: copy scanner channel into point_source  
 -copy_scanner_channel_into_user_data: copy scanner channel into user data  
 -copy_user_data_into_scanner_channel: copy user data into scanner channel  
@@ -322,7 +357,7 @@ original LAZ files.
 -set_scanner_channel [n]            : set scanner channel to [n]  
 -split_scanner_channel_from_point_source: split scanner channel from point source and save as extended scanner channel  
 
-### Source ID
+## Source ID
 -apply_file_source_ID               : copy file source ID to target  
 -bin_Z_into_point_source [n]        : set point source to z/[n]  
 -bin_abs_scan_angle_into_point_source [n]: set point source to scan_angle/[n]  
@@ -345,7 +380,7 @@ original LAZ files.
 -set_point_source [n]               : set point source to [n]  
 -split_scanner_channel_from_point_source: split scanner channel from point source and save as extended scanner channel  
 
-### User data
+## User data
 -add_scaled_attribute_to_user_data [m] [n]: scale attribute [m] value by [n] and add to user data  
 -change_user_data_from_to [m] [n]   : change user data from [m] to [n]  
 -copy_attribute_into_user_data [n]  : copy attribute [n] value into user data field  
@@ -370,7 +405,7 @@ original LAZ files.
 -scale_user_data [n]                : scale user data by [n]  
 -set_user_data [n]                  : sets all user_data fields to [n]  
 
-### Classification
+## Classification
 -change_class_from_to [m] [n]       : change classification from [m] to [n]  
 -change_classification_from_to [m] [n]: change classification from [m] to [n]  
 -change_extended_class_from_to [m] [n]: change extended class from [m] to [n]  
@@ -404,7 +439,7 @@ original LAZ files.
 -set_classification [n]             : set classification to [n]  
 -set_extended_classification [n]    : set extended classification to [n]  
 
-### Extra byte
+## Extra byte
 -add_attribute_to_z [n]             : add value of attribute [n] to z value  
 -add_scaled_attribute_to_user_data [m] [n]: scale attribute [m] value by [n] and add to user data  
 -add_scaled_attribute_to_z [m] [n]  : scale attribute [m] value by [n] and add to z value  
@@ -441,7 +476,7 @@ original LAZ files.
 -set_attribute [m] [n]              : set attribute [m] with value [n]  
 -translate_attribute [m] [n]        : translate attribute [n] by [n]  
 
-### Flags
+## Flags
 -drop_keypoint                   : drop points flaged as keypoint  
 -drop_overlap                    : drop points flaged as overlap  
 -drop_scan_direction [n]         : drop points with scan direction [n]  
@@ -461,7 +496,7 @@ original LAZ files.
 -set_synthetic_flag [0/1]        : set synthetic flag to [0/1]  
 -set_withheld_flag [0/1]         : set withheld flag to [0/1]  
 
-### GPS time
+## GPS time
 -adjusted_to_week                   : converts time stamps from Adjusted Standard GPS to GPS week  
 -bin_gps_time_into_intensity [n]    : set intensity time to gps/[n]  
 -bin_gps_time_into_point_source [n] : set point source to gps/[n]  
@@ -483,7 +518,7 @@ original LAZ files.
 -translate_gps_time [n]             : translate GPS time by [n]  
 -week_to_adjusted [n]               : converts time stamps from GPS week [n] to Adjusted Standard GPS  
 
-### Intensity
+## Intensity
 -bin_gps_time_into_intensity [n]    : set intensity time to gps/[n]  
 -clamp_intensity [min] [max]        : limit intensity values to [min] and [max]  
 -clamp_intensity_above [max]        : limit intensity values to maximal [max]  
@@ -520,7 +555,7 @@ original LAZ files.
 -translate_intensity [n]            : translate intensity by [n]  
 -translate_then_scale_intensity [m] [n]: translate intensity by [m] and scale by [n]  
 
-### Raw point values
+## Raw point values
 -clamp_raw_z [min] [max]            : limit raw z values to [min] and [max]  
 -translate_raw_x [n]                : translate raw x value by [n]  
 -translate_raw_xy_at_random [x] [y] : translate raw xy values by random and max offset of [x] [y]  
@@ -528,7 +563,7 @@ original LAZ files.
 -translate_raw_y [n]                : translate raw y value by [n]  
 -translate_raw_z [n]                : translate raw z value by [n]  
 
-### Registers
+## Registers
 -add_registers [m] [n] [o]          : add register [m] and [n] and store result in register [o]  
 -copy_B_into_register [n]           : copy blue color value into register [n]  
 -copy_G_into_register [n]           : copy green color value into register [n]  
@@ -557,7 +592,7 @@ original LAZ files.
 -subtract_registers [m] [n] [o]     : subtract register [m] by register [n] and store result in register [o]  
 -translate_register [m] [n]         : translate register index [m] value by [n]  
 
-### Scan angle
+## Scan angle
 -bin_abs_scan_angle_into_point_source [n]: set point source to scan_angle/[n]  
 -drop_abs_scan_angle_above [max]    : drop points with absolute scan angle above [max]  
 -drop_abs_scan_angle_below [min]    : drop points with absolute scan angle below [min]  
@@ -573,15 +608,15 @@ original LAZ files.
 -translate_scan_angle [n]           : translate scan angle by [n]  
 -translate_then_scale_scan_angle [m] [n]: translate scan angle by [m] and scale by [n]  
 
-### Tiles
+## Tiles
 -keep_tile [x] [y] [size] : keep tile at lower-left [x] [y] with size [s]  
 
-### Waveform packet
+## Waveform packet
 -drop_wavepacket [n]     : drop points with wavepacket value of [n]  
 -flip_waveform_direction : flip the waveform direction in the waveform VLR  
 -keep_wavepacket [n]     : keep points with wavepacket value of [n]  
 
-### CRS
+## CRS
 -aeac [m] [n] [meter/survey_feet/feet] [o] [p] [q] [r]: Albers Equal Area Conic Projection: False Easting [m] False Northing[n] [meter/survey_feet/feet] Central Meridian [o] Standard Parallel 1 [p] Standard Parallel 2 [q] Latitude of origin [r]  
 -ecef                               : input is geocentric (Earth-centered Earth-fixed)  
 -elevation_feet                     : use feet for elevation  
@@ -650,12 +685,12 @@ original LAZ files.
 -wgs72                              : use the WGS-72 ellipsoid  
 -wgs84                              : use the WGS-84 ellipsoid  
 
-### Logical
+## Logical
 -filter_and         : boolean AND combination of last 2 filters  
 -filter_or          : boolean OR combination of last 2 filters  
 -filtered_transform : do the transformation only on points of the current filter  
 
-### Input
+## Input
 -i [fnp]        : input file or input file mask [fnp] (e.g. *.laz;fo?.la?;esri.shp,...)  
 -io_ibuffer [n] : use read-input-buffer of size [n] bytes  
 -iparse [xyz]   : define fields [xyz] for text input parser  
@@ -670,7 +705,7 @@ original LAZ files.
 -buffered [n]   : use on-the-fly buffering of size [n] for tiles without implicit buffer  
 -stdin          : pipe from stdin  
 
-### Output
+## Output
 -compatible     : write LAS/LAZ output in compatibility mode  
 -do_not_populate : do not populate header on output  
 -io_obuffer [n] : use write-out-buffer of size [n] bytes  
@@ -698,7 +733,7 @@ original LAZ files.
 -target_ecef    : output is geocentric (Earth-centered Earth-fixed)  
 -temp_files [n] : set base file name [n] for temp files (example: E:\tmp)  
 
-### parse
+## parse
 The '-parse [xyz]' flag specifies how to interpret each line of the ASCII file.
 For example, 'tsxyzssa' means that the first number is the gpstime, the next
 number should be skipped, the next three numbers are the x, y, and z coordinate,
@@ -734,7 +769,7 @@ The other supported entries are:
   H : a hexadecimal string encoding the RGB color  
   J : a hexadecimal string encoding the intensity  
 
-### output separator
+## output separator
 The '-osep [sep]' argument specifies the output format of a text(xyz or csv) output.
 Supported [sep] values:
 
@@ -746,18 +781,18 @@ Supported [sep] values:
   hyphen  
   space  
 
-## Licensing
+# Licensing
 
 Info on licensing and pricing: https://rapidlasso.de/pricing/.
 If you have any questions or need assistance, email to info@rapidlasso.de.
 
-## Evaluation and demo mode
+# Evaluation and demo mode
 
 Please use the "-demo" argument to run the tool in demo mode. For quality tests,
 use small files (< 1.5 million points). If you use larger files, the output will
 contain diagonal lines/output distortions due to the license protection.
 
-## Support
+# Support
 
 1. We invite you to join our LAStools Google Group (http://groups.google.com/group/lastools/).
    If you are looking for information about a specific tool, enter the tool name in the search 

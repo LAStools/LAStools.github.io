@@ -1,5 +1,8 @@
 ﻿Note: Unless explicitly stated otherwise, all changes affect only the 64-bit versions
 
+11 March 2026 -- fix: LAS 1.5 encoding gps format warning
+11 March 2026 -- fix: las2dem_new: hillshade rendering on linux
+6 March 2026 -- fix: laspublish: improvements for potree 1.8 file handling and documentation update
 28 February 2026 -- NEW: las2las, txt2las: allow single char headers on input files equal to parse arguments
 24 February 2026 -- fix: reset point counter on lastile extra_pass
 28 January 2026 -- fix: multicore support for raster output options (-osep,-oforce,-force_tif,-force_bigTif)
