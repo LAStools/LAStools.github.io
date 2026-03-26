@@ -1,5 +1,8 @@
 ﻿Note: Unless explicitly stated otherwise, all changes affect only the 64-bit versions
 
+26 March 2026 -- NEW: no subdirectory "LAStools" in ZIP package to enable easy install by just extract to "c:\lastools"
+26 March 2026 -- NEW: lasvalidate64: complete redesign including LAS 1.5 and WKT support
+26 March 2026 -- NEW: lasview: -only_inside and -only_class argument for partial editing
 11 March 2026 -- fix: LAS 1.5 encoding gps format warning
 11 March 2026 -- fix: las2dem_new: hillshade rendering on linux
 6 March 2026 -- fix: laspublish: improvements for potree 1.8 file handling and documentation update

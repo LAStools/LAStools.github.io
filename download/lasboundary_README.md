@@ -28,7 +28,7 @@ file it can be specified in the command line with '-utm 15T' or
 be one label per file (!!!) in the center of the bounding box.
 
 For both KML and SHP output you can put many outputs into one
-file with the '-overview' option. To have additional into about
+file with the '-overview' option. To have additional info about
 bounding box and number of points in each file add '-labels' in
 addition to the command line.
 

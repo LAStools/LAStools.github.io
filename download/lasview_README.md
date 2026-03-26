@@ -194,6 +194,9 @@ reads around 10 million subsampled lidar points and displays in 11 steps
 -object                             : render only points classified as vegetation or building  
 -olaydir [n]                        : write the output *.lay file (from editing) in directory [n]  
 -only_first                         : render only first returns  
+-only_inside [x1] [y1] [x2] [y2]    : render only points inside the rectangle [x1] [y1] [x2] [y2]
+-only_inside_circle [cx] [cy] [r]   : render only points inside the circle, center_x [cx], center_y [cy] and radius [r]
+-only_class [n]                     : render only points with classification [n] (0-255)
 -only_last                          : render only last returns  
 -only_multi                         : render only multiple returns  
 -only_single                        : render only single returns  

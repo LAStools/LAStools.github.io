@@ -153,7 +153,6 @@ lasground_new64 -i *.laz -v -odir ground_classified -olaz -cores 8
 -no_clean                     : do not perform cleaning steps that remove spikes from the current ground TIN estimate  
 -no_iterate                   : disable iteration loops  
 -no_refine                    : disable refinement loops  
--no_stddev                    : sets stddev to zero  
 -non_ground_class [n]         : use class [n] for non-ground (default=1)  
 -non_ground_unchanged         : do not change non-ground points  
 -not_airborne                 : same as setting these three: '-no_bulge', '-all_returns', and '-stddev 0'  
@@ -168,7 +167,6 @@ lasground_new64 -i *.laz -v -odir ground_classified -olaz -cores 8
 -spike [n]                    : remove up and down spikes > [n] meters {default = 1 meter}  
 -spike_down [n]               : remove down spikes > [n] meters  
 -down_spike [n]               : remove down spikes > [n] meters  
--stddev [n]                   : set maximal standard deviation of [n]{meter} for planar patches  
 -store_in_user_data           : store computed height in user data  
 -week_to_adjusted [n]         : converts time stamps from GPS week [n] to Adjusted Standard GPS  
 
@@ -188,6 +186,10 @@ lasground_new64 -i *.laz -v -odir ground_classified -olaz -cores 8
 -cpu64          : force 32bit version to start 64 bit in multi core (obsolete)  
 -gui            : start with files loaded into GUI  
 -version        : reports this tool's version number  
+
+### old (deprecated in las2dem_new)
+-no_stddev                    : sets stddev to zero
+-stddev [n]                   : set maximal standard deviation of [n]{meter} for planar patches  
 
 
 ## Module arguments
