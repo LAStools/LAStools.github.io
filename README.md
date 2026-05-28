@@ -30,15 +30,15 @@ LAStools are a collection of highly efficient, multi-core batched, scriptable to
 * `lasdiff` compares LIDAR data and reports whether they are identical or different
 * `lasindex` creates a spatial index LAX file for fast spatial queries
 * `lasinfo` prints out a quick overview of the contents of a LAS file
+* `lasvalidate` determine if LAS files are conform to the ASPRS LAS specifications
 * `lasmerge` merges several LAS or LAZ files into a single LAS or LAZ file
 * `lasprecision` analyses the actual precision of the LIDAR points
 * `laszip` powerful, lossless LiDAR compressor that turns large LAS files into much smaller LAZ files that are only 7 - 20 percent of the original file size
 * `txt2las` converts LIDAR data from ASCII text to binary LAS format
+* `e572las` extracts the points from the E57 format and stores them as LAS/LAZ files
 
 ### Free tools:
-* `lasvalidate` determine if LAS files are conform to the ASPRS LAS specifications
 * `lasview` visualizes a LAS file with a simple OpenGL viewer
-* `e572las` extracts the points from the E57 format and stores them as LAS/LAZ files
 * `demzip` compresses and uncompresses raster data from ASC, BIL, TIF, IMG format to the compressed RasterLAZ format
 
 ### Closed source tools:
@@ -78,7 +78,7 @@ LAStools are a collection of highly efficient, multi-core batched, scriptable to
 * `lastile` tiles huge amounts of LAS points into square tiles
 * `lastool` is an old GUI for multiple LAStools (now each tool has its own GUI)
 * `lastrack` classifies LiDAR point based on distance from a trajectory
-* `lasvdatum` transforms iDAR from ellipsoidal to orthometric elevations using a grid
+* `lasvdatum` transforms LiDAR from ellipsoidal to orthometric elevations using a grid
 * `lasvoxel` computes voxelization of points
 * `shp2las` turns an ESRI's Shapefile into binary LAS
 
