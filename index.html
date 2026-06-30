@@ -29,7 +29,7 @@ a:visited { color: #91c32e; }
 </CENTER>
 <H2>Abstract</H2>
 Tools to process LiDAR data files.<br>
-The data files has the ASPRS LAS format (version 1.0-1.4) or the losslessly compressed, but otherwise identical twin, the LAZ format.<br>
+The data files has the ASPRS LAS format (version 1.0-1.5) or the losslessly compressed, but otherwise identical twin, the LAZ format.<br>
 See the product overview or the table below to see what tools and converters we provide.
 <br><br>
 LAStools consist of different parts:<br>
@@ -56,21 +56,22 @@ LAStools are a collection of highly-efficient, scriptable tools with multi-core 
 <tr><td></td><td><a href="download/lascopcindex_README.md">lascopcindex</a></td><td>creates a COPC *.laz file for a given set of *.las or *.laz files</td></tr>
 <tr><td></td><td><a href="download/lasdiff_README.md">lasdiff</a></td><td>compares LIDAR data of two LAS/LAZ/ASCII files and reports whether they are identical or whether they are different</td></tr>
 <tr><td></td><td><a href="download/lasinfo_README.md">lasinfo</a></td><td>prints out an overview of the contents of a LAS/LAZ file</td></tr>
+<tr><td></td><td><a href="download/lasvalidate_README.md">lasvalidate</a></td><td>determine if LAS files are conform to the ASPRS LAS specification</td></tr>
 <tr><td></td><td><a href="download/lasmerge_README.md">lasmerge</a></td><td>can merge several LAS/LAZ files into one</td></tr>
 <tr><td></td><td><a href="download/lasprecision_README.md">lasprecision</a></td><td>reads LIDAR data in the LAS format and computes statistics about precision "advertised" in the header</td></tr>
+<tr><td></td><td><a href="download/e572las_README.md">e572las</a></td><td>extracts the points from the E57 format and stores them as LAS/LAZ files</td></tr>
 </table>
 <H2>Free tools</H2>
 <table>
 <tr><td style="padding-left: 15px;">&nbsp;</td>
 <tr><td></td><td><a href="download/lasview_README.md">lasview</a></td><td>visualizes the contents of a LAS/LAZ file and can also compute a TIN</td></tr>
-<tr><td></td><td><a href="download/lasvalidate_README.md">lasvalidate</a></td><td>determine if LAS files are conform to the ASPRS LAS specifications</td></tr>
 <tr><td></td><td><a href="download/demzip_README.md">demzip</a></td><td>compresses and uncompresses raster data to RasterLAZ format</td></tr>
-<tr><td></td><td><a href="download/e572las_README.md">e572las</a></td><td>extracts the points from the E57 format and stores them as LAS/LAZ files</td></tr>
 </table>
 <H2>Closed source tools</H2>
 <table>
 <tr><td style="padding-left: 15px;">&nbsp;</td>
 </td><td><a href="download/las2dem_README.md">las2dem</a></td><td>rasters pointclouds (via a TIN) into elevation/slope/intensity/RGB DEMs</td></tr>
+<tr><td></td><td><a href="download/las2dem_new_README.md">las2dem_new</a></td><td>fast DSM/DTM with spike-free operation to hillshade, slope, elevation, RGB or false color grid rasterization.</td></tr>
 <tr><td></td><td><a href="download/las2iso_README.md">las2iso</a></td><td>extracts, optionally simplified, elevation contours</td></tr>
 <tr><td></td><td><a href="download/las2shp_README.md">las2shp</a></td><td>turns LAS/LAZ into ESRI's Shapefile format</td></tr>
 <tr><td></td><td><a href="download/shp2las_README.md">shp2las</a></td><td>turns an ESRI's Shapefile into LAS/LAZ</td></tr>
@@ -87,7 +88,7 @@ LAStools are a collection of highly-efficient, scriptable tools with multi-core 
 <tr><td></td><td><a href="download/lasduplicate_README.md">lasduplicate</a></td><td>removes all duplicate points from a LAS/LAZ/ASCII file</td></tr>
 <tr><td></td><td><a href="download/lasgrid_README.md">lasgrid</a></td><td>grids data onto a raster</td></tr>
 <tr><td></td><td><a href="download/lasground_README.md">lasground</a></td><td>tool for bare-earth extraction</td></tr>
-<tr><td></td><td><a href="download/lasground_new_README.md">lasground</a></td><td>redesigned version of lasground for even better bare-earth extraction</td></tr>
+<tr><td></td><td><a href="download/lasground_new_README.md">lasground_new</a></td><td>redesigned version of lasground for even better bare-earth extraction</td></tr>
 <tr><td></td><td><a href="download/lasheight_README.md">lasheight</a></td><td>computes the height of each LAS point above the ground</td></tr>
 <tr><td></td><td><a href="download/lasindex_README.md">lasindex</a></td><td>creates a *.lax file for a given *.las or *.laz file that contains spatial indexing information</td></tr>
 <tr><td></td><td><a href="download/laslayers_README.md">laslayers</a></td><td>add layer functionality to LAS/LAZ files</td></tr>
@@ -102,6 +103,7 @@ LAStools are a collection of highly-efficient, scriptable tools with multi-core 
 <tr><td></td><td><a href="download/lassort_README.md">lassort</a></td><td>z-orders LAS/LAZ files</td></tr>
 <tr><td></td><td><a href="download/lassplit_README.md">lassplit</a></td><td>splits the input file(s) into several output files based on various parameters</td></tr>
 <tr><td></td><td><a href="download/lasthin_README.md">lasthin</a></td><td>implements a simple point thinning algorithm</td></tr>
+<tr><td></td><td><a href="download/lasthin3d_README.md">lasthin3d</a></td><td>3d thinning algorithm for pointcloud data</td></tr>
 <tr><td></td><td><a href="download/lastile_README.md">lastile</a></td><td>creates a tiling of LAS/LAZ files</td></tr>
 <tr><td></td><td><a href="download/lastrack_README.md">lastrack</a></td><td>takes files together with a trajectory file by matching GPS time stamps</td></tr>
 <tr><td></td><td><a href="download/lasvdatum_README.md">lasvdatum</a></td><td>transforms LiDAR from ellipsoidal to orthometric elevations using a grid</td></tr>
