@@ -1,5 +1,7 @@
 ﻿Note: Unless explicitly stated otherwise, all changes affect only the 64-bit versions
 
+3 September 2026 -- NEW: Extend -remove_vlr to remove VLRs by multiple indices or by user ID and record ID
+3 September 2026 -- fix: EPSG source/target argument handling after vertical CRS support changes
 21 August 2026 -- NEW: las2las: arguments '-load_txt_to_vlr' and '-load_bin_to_vlr' to modify VLR data
 21 August 2026 -- fix: lasinfo: unify VLR line endings; support multiline texts in VLR output
 21 August 2026 -- fix: lasvalidate: 32 byte field termination validation

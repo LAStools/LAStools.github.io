@@ -259,7 +259,8 @@ point.Z<1000 or point.Z>4000 and stores all surviving points to out.laz
     las2las64 -latlong -target_utm 12T -i in.las -o out.las
     las2las64 -i in.laz -target_epsg 2972 -o out.laz
     las2las64 -set_point_type 0 -lof file_list.txt -merged -o out.las
-    las2las64 -remove_vlr 2 -scale_rgb_up -i in.las -o out.las
+    las2las64 -remove_vlr 0 2 -scale_rgb_up -i in.las -o out.las
+    las2las64 -remove_vlr "LASF_Projection" 34735 -i in.las -o out.las
     las2las64 -i in.las -keep_xy 630000 4834500 630500 4835000 -keep_z 10 100 -o out.las
     las2las64 -i in.txt -iparse xyzit -keep_circle 630200 4834750 100 -oparse xyzit -o out.txt
     las2las64 -i in.laz -remove_padding -keep_scan_angle -15 15 -o out.laz
@@ -285,7 +286,7 @@ point.Z<1000 or point.Z>4000 and stores all surviving points to out.laz
 -feet                               : use feet  
 -force                              : force a GPS conversion even if conversion is suspect  
 -load_vlrs                          : loads all VLRs from a file called vlrs.vlr and adds them to each processed file  
--load_vlr [i] [u] [r] [f]           : loads a VLR entry specified by index [i] (default = 0) or user ID [u] and record ID [r] from file [f] (default: save.vlr) and adds it to each processed file header   
+-load_vlr [i] [u] [r] [f]           : loads a VLR entry specified by index [i] (default = 0) or user ID [u] and record ID [r] from file [f] (default: save.vlr) and adds it to each processed file header  
 -load_txt_to_vlr [i] [u] [r] [f]    : loads text file [f] as data into the VLR specified by index [i] (default = 0) or user ID [u] and record ID [r]  
 -load_bin_to_vlr [i] [u] [r] [f]    : loads binary file [f] as data into the VLR specified by index [i] (default = 0) or user ID [u] and record ID [r]  
 -load_ogc_wkt [f]                   : loads the WKT from file [f] and puts it into the OGC WKT VLR 
@@ -300,7 +301,7 @@ point.Z<1000 or point.Z>4000 and stores all surviving points to out.laz
 -remove_original_vlr                : removes VLR containing original header information created by on-the-fly buffering  
 -remove_padding                     : remove user-defined bytes before and after the header  
 -remove_tiling_vlr                  : removes VLR containing tiling information created by lastile  
--remove_vlr [n]                     : remove VLR with index [n]{0=first}  
+-remove_vlr [i] [i] ... | [u] [r]   : removes VLRs by one or more indices [i] {0=first} or by user ID [u] and record ID [r]  
 -remove_vlrs_from_to [m] [n]        : remove VLRs with index [m] to [n]{0=first}  
 -reoffset [x] [y] [z]               : puts a new offset [x] [y] [z] into the header and translates the points accordingly  
 -rescale [x] [y] [z]                : puts a new scale [x] [y] [z] into the header and rescales the points accordingly  
